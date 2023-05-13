@@ -1,0 +1,9 @@
+#Machinery_div {
+    opacity: 0;
+}
+
+#Machinery_div.is-inViewport {
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+    transition-delay: .1s;
+}

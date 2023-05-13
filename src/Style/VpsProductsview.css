@@ -1,0 +1,22 @@
+#productImages {
+    opacity: 0;
+}
+
+#productImages.is-inViewport {
+    opacity: 1;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s ease-in-out;
+    transition-delay: .1s;
+}
+.productviewheading{
+    position: relative;
+    top: 25%;
+}
+.productQuote path{
+    color:white;   
+}
+.productQuote{
+    font-size: 3rem;
+}
+.productImgShadow{
+    filter: drop-shadow(4px 8px 4px darkgray)!important;
+}

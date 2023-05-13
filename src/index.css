@@ -1,0 +1,165 @@
+/* Regular weight */
+/* @font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu'), local('Ubuntu-Regular'), url(https://fonts.gstatic.com/s/ubuntu/v15/4iCs6KVjbNBYlgoKcg72nU6AFw.ttf) format('truetype');
+} */
+
+/* Bold weight */
+/* @font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(https://fonts.gstatic.com/s/ubuntu/v15/4iCs6KVjbNBYlgoKcg72nU6Owps.ttf) format('truetype');
+} */
+/* Regular weight */
+@font-face {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Helvetica'), local('Helvetica-Regular'), url(https://fonts.gstatic.com/s/helvetica/v9/4iCv6KVjbNBYlgoC1CzTtw.ttf) format('truetype');
+}
+
+/* Bold weight */
+@font-face {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Helvetica Bold'), local('Helvetica-Bold'), url(https://fonts.gstatic.com/s/helvetica/v9/4iCp6KVjbNBYlgoCjC3jsGyN.ttf) format('truetype');
+}
+body {
+  margin: 0;
+  /* font-family: heroiccondensedregular,arial narrow,sans-serif; */
+  /* font-family: 'Ubuntu', sans-serif; */
+  /* font-family: Poppins; */
+  font-family: 'Rubik',sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: normal;
+  /* color: #4b4b4b; */
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff!important;
+  color: #212529!important;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+hr {
+  position: relative;
+  top: 20px;
+  border: none;
+  height: 3px;
+  background: black;
+  margin-bottom: 50px;
+}
+path, p{
+  color: black;
+}
+.top-btn-prop path{
+  color: white!important;
+}
+#slider p{
+  color: black !important;
+}
+.about-content, a, span{
+  color: black !important;
+  text-decoration: none;
+}
+.social-icons path{
+  color: black;
+}
+.submitBtn span{
+  color: black !important
+}
+.nav-link {
+  color:var(--bs-nav-link-color)!important
+}
+.nav-link.active{
+  color:var(--bs-navbar-active-color)!important
+}
+@media (min-width: 992px){
+.border-end-lg {
+    border-right: solid 1px rgba(255, 255, 255, 0.14) !important;
+}
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .vpsheader .navbar-brand {
+    font-size: 16px;
+    font-weight: 250;
+    margin-right: 0;
+  }
+  .vpsheader .navbar-toggler{
+    padding: 0;
+  }
+  .contactNav{
+    background-color: black!important;
+    height: 50px!important;
+  }
+  .moldtxt{
+    top: 50% !important;
+  }
+  .viewmoldbtn{
+    top: 75%!important;
+  }
+  .productviewheading{
+    position: relative;
+    top: 0%!important;
+}
+.productBoxShadow{
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.4)!important;
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+ 
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  
+}
+.navbar-brand path, .navbar-nav path{
+  color: white!important;
+}
+.contactNav{
+  background-color: black!important;
+  height: 35px;
+}
+.carousel-control-prev, .carousel-control-next{
+  z-index: 2!important;
+}
+.slider-card-description, .slider-card-title{
+  white-space: normal!important;
+  font-weight: bolder!important;
+}
+.slider-card{
+  height: auto!important;
+}
+#slider{
+  height: auto!important;
+}
