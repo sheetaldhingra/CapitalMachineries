@@ -24,8 +24,8 @@ export default function VpsProductSlider() {
   const getProductsData = async () => {
     $('.moldLoader').addClass('d-flex').removeClass('d-none');
     $('.moldContent').removeClass('d-flex').addClass('d-none');
-    const res = await fetch("https://new-crud-api.vercel.app/api/products", {
-    // const res = await fetch("http://localhost:5000/api/products", {
+    const res = await fetch(process.env.REACT_APP_VercelUrl + "/products", {
+    // const res = await fetch(process.env.REACT_APP_VercelUrl + "/products", {
       method: "GET",
       headers: headers,
     })
@@ -119,7 +119,7 @@ export default function VpsProductSlider() {
 //   var slides = [];
 //   const search = '';
 //   const getProductsData = async () => {
-//     const res = await fetch("https://new-crud-api.vercel.app/api/machines", {
+//     const res = await fetch(process.env.REACT_APP_VercelUrl + "/machines", {
 //       method: "GET",
 //       headers: headers,
 //     })

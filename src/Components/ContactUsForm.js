@@ -54,8 +54,7 @@ export default function ContactUsForm() {
           $("#inputmessage").val() +
           "</strong>",
       };
-      const baseUrl = "http://localhost:8006";
-      const res = await fetch(`${baseUrl}/email/sendEmail`, {
+      const res = await fetch(process.env.REACT_APP_VercelUrl + "/email/sendEmail", {
         method: "POST",
         body: JSON.stringify(dataSend),
         headers: {
@@ -124,7 +123,7 @@ export default function ContactUsForm() {
                 />
                 <div className="invalid-feedback">Please enter your name!</div>
               </div>
-              <div className="col-sm-6 mb-4">
+              <div className="col-sm-6 mb-4 z-1">
                 <label htmlFor="inputPassword3" className="form-label fs-base">
                   Email
                 </label>

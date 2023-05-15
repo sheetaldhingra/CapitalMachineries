@@ -48,13 +48,13 @@ function AddMachines(props) {
   const [image, setImage] = useState("");
   const [records, setRecords] = useState([]);
   const [searchVal, setSearchVal] = useState("");
-  var url = "https://new-crud-api.vercel.app/api/machines";
+  var url = process.env.REACT_APP_VercelUrl + "/machines";
   var headers = {};
   useEffect(() => {
     url =
       searchVal !== ""
-        ? "https://new-crud-api.vercel.app/api/machines" + `?title=` + searchVal
-        : "https://new-crud-api.vercel.app/api/machines";
+        ? process.env.REACT_APP_VercelUrl + "/machines" + `?title=` + searchVal
+        : process.env.REACT_APP_VercelUrl + "/machines";
     getData();
     IsLogin =
       sessionStorage.getItem("IsLogin") !== null
@@ -177,7 +177,7 @@ function AddMachines(props) {
       confirmButtonText: "Yes, deactivate it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await fetch("https://new-crud-api.vercel.app/api/machines/deactivate_machines", {
+        await fetch(process.env.REACT_APP_VercelUrl + "/machines/deactivatemachines", {
           method: "POST",
           body: JSON.stringify({
             id: event.target.id,
@@ -200,7 +200,7 @@ function AddMachines(props) {
     });
   };
   const activateProduct = async (event) => {
-    await fetch("https://new-crud-api.vercel.app/api/machines/activate_machines", {
+    await fetch(process.env.REACT_APP_VercelUrl + "/machines/activatemachines", {
       method: "POST",
       body: JSON.stringify({
         id: event.target.id,
@@ -297,7 +297,7 @@ function AddMachines(props) {
     let url = "";
     if (valid) {
       if ($(event.target).attr("product_id") !== undefined) {
-        url = "https://new-crud-api.vercel.app/api/machines/update_machines";
+        url = process.env.REACT_APP_VercelUrl + "/machines/updatemachines";
         product = {
           id: $(event.target).attr("product_id"),
           title: $("#product-title").val(),
@@ -306,7 +306,7 @@ function AddMachines(props) {
           Active: $("#isActive").is(":checked"),
         };
       } else {
-        url = "https://new-crud-api.vercel.app/api/machines/save_machines";
+        url = process.env.REACT_APP_VercelUrl + "/machines/savemachines";
         product = {
           title: $("#product-title").val(),
           image: image,

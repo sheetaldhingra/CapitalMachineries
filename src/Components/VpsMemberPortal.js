@@ -46,15 +46,16 @@ function VpsMemberPortal(props) {
   const [previewUrl, setPreviewUrl] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [image, setImage] = useState("");
+  const [imageBlob, setImageBob] = useState([]);
   const [records, setRecords] = useState([]);
   const [searchVal, setSearchVal] = useState("");
-  var url = "https://new-crud-api.vercel.app/api/products";
+  var url = process.env.REACT_APP_VercelUrl + "/products";
   var headers = {};
   useEffect(() => {
     url =
       searchVal !== ""
-        ? "https://new-crud-api.vercel.app/api/products" + `?title=` + searchVal
-        : "https://new-crud-api.vercel.app/api/products";
+        ? process.env.REACT_APP_VercelUrl + "/products" + `?title=` + searchVal
+        : process.env.REACT_APP_VercelUrl + "/products";
     getData();
     IsLogin =
       sessionStorage.getItem("IsLogin") !== null
@@ -191,7 +192,7 @@ function VpsMemberPortal(props) {
       confirmButtonText: "Yes, deactivate it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await fetch("https://new-crud-api.vercel.app/api/products/deactivate_products", {
+        await fetch(process.env.REACT_APP_VercelUrl + "/products/deactivateproducts", {
           method: "POST",
           body: JSON.stringify({
             id: event.target.id,
@@ -214,7 +215,7 @@ function VpsMemberPortal(props) {
     });
   };
   const activateProduct = async (event) => {
-    await fetch("https://new-crud-api.vercel.app/api/products/activate_products", {
+    await fetch(process.env.REACT_APP_VercelUrl + "/products/activateproducts", {
       method: "POST",
       body: JSON.stringify({
         id: event.target.id,
@@ -270,6 +271,22 @@ function VpsMemberPortal(props) {
       reader.readAsDataURL(file);
       reader.onload = () => {
         setImage(reader.result);
+        // Base64 encoded string
+const base64String = reader.result;
+
+// Extract the content type and Base64 data from the string
+const contentType = base64String.slice(base64String.indexOf(':') + 1, base64String.indexOf(';'));
+const base64Data = base64String.slice(base64String.indexOf(',') + 1);
+// Decode the Base64 data
+const binaryData = window.atob(base64Data);
+// Create a Uint8Array from the binary data
+const uint8Array = new Uint8Array(binaryData.length);
+// Create a Blob object from the Uint8Array and content type
+const blob = new Blob([uint8Array], { type: contentType });
+for (let i = 0; i < binaryData.length; i++) {
+  uint8Array[i] = binaryData.charCodeAt(i);
+}
+        setImageBob(uint8Array);
       };
       reader.onerror = (error) => {
       };
@@ -311,21 +328,25 @@ function VpsMemberPortal(props) {
     let url = "";
     if (valid) {
       if ($(event.target).attr("product_id") !== undefined) {
-        url = "https://new-crud-api.vercel.app/api/products/update_products";
+        // url = process.env.REACT_APP_VercelUrl + "/products/updateproducts";
+        url = process.env.REACT_APP_LocalUrl+ "/products/updateproducts";
         product = {
           id: $(event.target).attr("product_id"),
           title: $("#product-title").val(),
-          image: image,
+          // image: image,
+          // imageBlob:imageBlob,
           ShortDescription: $("#short-desc").val(),
           LongDescription: $("#product-desc").val(),
           IsShow: $("#isShow").is(":checked"),
           Active: $("#isActive").is(":checked"),
         };
       } else {
-        url = "https://new-crud-api.vercel.app/api/products/save_products";
+        // url = process.env.REACT_APP_VercelUrl + "/products/saveproducts";
+        url = process.env.REACT_APP_LocalUrl+ "/products/saveproducts";
         product = {
           title: $("#product-title").val(),
           image: image,
+          // imageBlob:imageBlob,
           ShortDescription: $("#short-desc").val(),
           LongDescription: $("#product-desc").val(),
           IsShow: $("#isShow").is(":checked"),

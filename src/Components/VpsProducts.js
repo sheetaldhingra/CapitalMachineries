@@ -6,7 +6,7 @@ export default function VpsProducts() {
   const headers = {};
   const search = "";
   const getProductsData = async () => {
-    const res = await fetch("https://new-crud-api.vercel.app/api/products", {
+    const res = await fetch(process.env.REACT_APP_VercelUrl + "/products", {
       method: "GET",
       headers: headers,
     })

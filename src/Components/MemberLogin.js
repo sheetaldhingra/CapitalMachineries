@@ -3,6 +3,8 @@ import "../Style/memberLogin.css";
 import $ from "jquery";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 export default function MemberLogin() {
   const checkKey = (event) => {
@@ -20,10 +22,9 @@ export default function MemberLogin() {
     } else {
       $("#memberName").removeClass("is-invalid");
       $("#memberPass").removeClass("is-invalid");
-
       if (
-        $("#memberPass").val() === "Test1234" &&
-        $("#memberName").val() === "KushSharma"
+        $("#memberPass").val() === process.env.REACT_APP_userPassword &&
+        $("#memberName").val() === process.env.REACT_APP_userName
       ) {
         sessionStorage.setItem("IsLogin", true);
         navigate("/memberlogin/MemberPortal", {
@@ -32,21 +33,21 @@ export default function MemberLogin() {
           },
         });
       } else if (
-        $("#memberName").val() !== "KushSharma" &&
-        $("#memberPass").val() !== "Test1234"
+        $("#memberName").val() !== process.env.REACT_APP_userName &&
+        $("#memberPass").val() !== process.env.REACT_APP_userPassword
       ) {
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "UserName and Password is in-valid",
         });
-      } else if ($("#memberName").val() !== "KushSharma") {
+      } else if ($("#memberName").val() !== process.env.REACT_APP_userName) {
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: "UserName is in-valid",
         });
-      } else if ($("#memberPass").val() !== "Test1234") {
+      } else if ($("#memberPass").val() !== process.env.REACT_APP_userPassword) {
         Swal.fire({
           icon: "error",
           title: "Oops...",

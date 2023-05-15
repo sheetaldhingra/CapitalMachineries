@@ -14,6 +14,7 @@ import VpsFacilities from './Components/VpsFacilities';
 import AddMachines from './Components/AddMachines';
 import VpsBootstrapAboutus from './Components/VpsBootstrapAboutus';
 import VpsManufacturing from './Components/VpsManufacturing';
+import VpsResultPage from './Components/VpsResultPage';
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
     <Route exact path="/facilities" element={<VpsFacilities/>} />
     <Route exact path="/manufacture" element={<VpsManufacturing/>} />
     <Route exact path="/memberlogin/Addmachines" element={<AddMachines/>} />
+    <Route exact path="/searchResult" element={<VpsResultPage/>} />
   </Routes>
   <GoToTop/>
     </Router>

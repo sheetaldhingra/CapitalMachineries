@@ -8,7 +8,7 @@ export default function VpsMachinery() {
   const headers = {};
   const search = "";
   const getMachinesData = async () => {
-    const res = await fetch("https://new-crud-api.vercel.app/api/machines", {
+    const res = await fetch(process.env.REACT_APP_VercelUrl + "/machines", {
       method: "GET",
       headers: headers,
     })
