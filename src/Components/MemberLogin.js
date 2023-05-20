@@ -81,7 +81,7 @@ export default function MemberLogin() {
                   className="form-control form-control-lg"
                   placeholder="Enter a valid email address"
                 />
-                <label className="form-label" htmlFor="memberName">
+                <label className="form-label text-light" htmlFor="memberName">
                   <strong>Email address</strong>
                 </label>
               </div>
@@ -94,7 +94,7 @@ export default function MemberLogin() {
                   className="form-control form-control-lg"
                   placeholder="Enter password"
                 />
-                <label className="form-label" htmlFor="memberPass">
+                <label className="form-label text-light" htmlFor="memberPass">
                   <strong>Password</strong>
                 </label>
               </div>

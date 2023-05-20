@@ -24,7 +24,7 @@ export default function VpsProductSlider() {
   const getProductsData = async () => {
     $('.moldLoader').addClass('d-flex').removeClass('d-none');
     $('.moldContent').removeClass('d-flex').addClass('d-none');
-    const res = await fetch(process.env.REACT_APP_VercelUrl + "/products", {
+    const res = await fetch(process.env.REACT_APP_LocalUrl + "/products?isShow=1", {
     // const res = await fetch(process.env.REACT_APP_VercelUrl + "/products", {
       method: "GET",
       headers: headers,

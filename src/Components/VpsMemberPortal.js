@@ -49,19 +49,27 @@ function VpsMemberPortal(props) {
   const [imageBlob, setImageBob] = useState([]);
   const [records, setRecords] = useState([]);
   const [searchVal, setSearchVal] = useState("");
-  var url = process.env.REACT_APP_VercelUrl + "/products";
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalRecord, setTotalRecord] = useState(0);
+  const [paginationLinksHTML, setpaginationLinksHTML] = useState([]);
+  var url = process.env.REACT_APP_LocalUrl + "/products?page=1";
+  // var url = process.env.REACT_APP_VercelUrl + "/products?page=1";
   var headers = {};
   useEffect(() => {
     url =
       searchVal !== ""
-        ? process.env.REACT_APP_VercelUrl + "/products" + `?title=` + searchVal
-        : process.env.REACT_APP_VercelUrl + "/products";
+        ? process.env.REACT_APP_LocalUrl + "/products" + `?title=` + searchVal
+        : process.env.REACT_APP_LocalUrl + "/products?page=1";
+    // url =
+    //   searchVal !== ""
+    //     ? process.env.REACT_APP_VercelUrl + "/products" + `?title=` + searchVal
+    //     : process.env.REACT_APP_VercelUrl + "/products?page=1";
     getData();
     IsLogin =
       sessionStorage.getItem("IsLogin") !== null
         ? sessionStorage.getItem("IsLogin").toString()
         : false;
-  }, [searchVal]);
+  }, [searchVal, totalRecord]);
   const columns = [
     {
       name: "Title",
@@ -240,6 +248,8 @@ function VpsMemberPortal(props) {
     // }
   };
   const getData = async () => {
+    // url = process.env.REACT_APP_VercelUrl + "/products/saveproducts";
+    //url = process.env.REACT_APP_LocalUrl+ "/products?page="+currentPage;
     const res = await fetch(url, {
       method: "GET",
       headers: headers,
@@ -250,12 +260,92 @@ function VpsMemberPortal(props) {
         return response.json();
       })
       .then((data) => {
-        data = data.myData;
-        setRecords(data);
+        setRecords(data.myData);
+        setTotalRecord(data.nbHits);
+        renderPaginationLinks()
       })
       .catch(function (error) {
       });
   };
+  const renderPaginationLinks = () => {
+    if (totalRecord > 0) {
+      const paginationLinks = [];
+      for (let index = 0; index < Math.ceil(totalRecord / 10); index++) {
+        
+        if(index === 0){
+        paginationLinks.push(
+          <li className="page-item" key={index}>
+            <button className="page-link numBtn firstButton active" pagenum={index + 1} onClick={getPageData} >
+              {index + 1}
+            </button>
+          </li>
+        );
+        }
+        else if(index === (Math.ceil(totalRecord / 10) - 1)){
+          paginationLinks.push(
+            <li className="page-item" key={index}>
+              <button className="page-link numBtn lastButton" pagenum={index + 1} onClick={getPageData} >
+                {index + 1}
+              </button>
+            </li>
+          );
+        }
+        else{
+          paginationLinks.push(
+            <li className="page-item numItems" key={index}>
+              <button className="page-link numBtn" pagenum={index + 1} onClick={getPageData} >
+                {index + 1}
+              </button>
+            </li>
+          );
+        }
+      }
+      setpaginationLinksHTML(paginationLinks);
+    }
+  };
+  const getPageData = (event) =>{
+    debugger
+    event.stopPropagation();
+    $('.numBtn').removeClass('active')
+    $(event.target).addClass('active')
+    setCurrentPage(parseInt($(event.target).attr('pagenum')))
+    url=process.env.REACT_APP_LocalUrl + "/products?page="+$(event.target).attr('pagenum');
+    getData();
+    if($(event.target).hasClass('firstButton')){
+      $('.previousBtn').addClass('disabled')
+      $('.nextBtn').removeClass('disabled')
+    }
+    else if($(event.target).hasClass('lastButton')){
+      $('.previousBtn').removeClass('disabled')
+      $('.nextBtn').addClass('disabled')
+    }
+    else{
+      $('.previousBtn').removeClass('disabled')
+      $('.nextBtn').removeClass('disabled')
+    }
+  }
+  const goToprevious =()=>{
+    var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
+    $('.page-item .numBtn').removeClass('active')
+    $('.page-item .numBtn[pagenum='+(currentPage - 1)+']').addClass('active')
+    url=process.env.REACT_APP_LocalUrl + "/products?page="+(currentPage-1);
+    getData();
+    if($('.page-item .numBtn[pagenum='+(currentPage - 1)+']').hasClass('firstButton')){
+      $('.previousBtn').addClass('disabled')
+    }
+    $('.nextBtn').removeClass('disabled')
+  }
+  const goToNext = ()=>{
+    var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
+    $('.page-item .numBtn').removeClass('active')
+    $('.page-item .numBtn[pagenum='+(currentPage + 1)+']').addClass('active')
+    url=process.env.REACT_APP_LocalUrl + "/products?page="+(currentPage+1);
+    getData();
+    if($('.page-item .numBtn[pagenum='+(currentPage + 1)+']').hasClass('lastButton')){
+      $('.nextBtn').addClass('disabled')
+    }
+    $('.previousBtn').removeClass('disabled')
+  }
   // const { Buffer } = require('buffer');
   // const Binary  = require('binary');
   function handleFileInputChange(event) {
@@ -405,7 +495,7 @@ for (let i = 0; i < binaryData.length; i++) {
             columns={columns}
             data={records}
             theme="dark"
-            pagination
+			      pagination={false}
             fixedHeader
             fixedHeaderScrollHeight="450px"
             // selectableRows
@@ -433,6 +523,21 @@ for (let i = 0; i < binaryData.length; i++) {
               />
             }
           />
+          <nav aria-label="Page navigation example" className="justify-content-center">
+      <ul className="pagination justify-content-center">
+        <li className="page-item ">
+          <button className="page-link previousBtn disabled" onClick={goToprevious} tabIndex="-1">
+            Previous
+          </button>
+        </li>
+        {paginationLinksHTML}
+        <li className="page-item">
+          <button className="page-link nextBtn" onClick={goToNext} >
+            Next
+          </button>
+        </li>
+      </ul>
+    </nav>
         </div>
         <div
           className="modal fade"
