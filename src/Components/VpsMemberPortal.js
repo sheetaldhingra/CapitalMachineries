@@ -52,18 +52,18 @@ function VpsMemberPortal(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalRecord, setTotalRecord] = useState(0);
   const [paginationLinksHTML, setpaginationLinksHTML] = useState([]);
-  var url = process.env.REACT_APP_LocalUrl + "/products?page=1";
-  // var url = process.env.REACT_APP_VercelUrl + "/products?page=1";
+  // var url = process.env.REACT_APP_LocalUrl + "/products?page=1";
+  var url = process.env.REACT_APP_VercelUrl + "/products?page=1";
   var headers = {};
   useEffect(() => {
-    url =
-      searchVal !== ""
-        ? process.env.REACT_APP_LocalUrl + "/products" + `?title=` + searchVal
-        : process.env.REACT_APP_LocalUrl + "/products?page=1";
     // url =
     //   searchVal !== ""
-    //     ? process.env.REACT_APP_VercelUrl + "/products" + `?title=` + searchVal
-    //     : process.env.REACT_APP_VercelUrl + "/products?page=1";
+    //     ? process.env.REACT_APP_LocalUrl + "/products" + `?title=` + searchVal
+    //     : process.env.REACT_APP_LocalUrl + "/products?page=1";
+    url =
+      searchVal !== ""
+        ? process.env.REACT_APP_VercelUrl + "/products" + `?title=` + searchVal
+        : process.env.REACT_APP_VercelUrl + "/products?page=1";
     getData();
     IsLogin =
       sessionStorage.getItem("IsLogin") !== null
@@ -304,12 +304,11 @@ function VpsMemberPortal(props) {
     }
   };
   const getPageData = (event) =>{
-    debugger
     event.stopPropagation();
     $('.numBtn').removeClass('active')
     $(event.target).addClass('active')
     setCurrentPage(parseInt($(event.target).attr('pagenum')))
-    url=process.env.REACT_APP_LocalUrl + "/products?page="+$(event.target).attr('pagenum');
+    url=process.env.REACT_APP_VercelUrl + "/products?page="+$(event.target).attr('pagenum');
     getData();
     if($(event.target).hasClass('firstButton')){
       $('.previousBtn').addClass('disabled')
@@ -328,7 +327,7 @@ function VpsMemberPortal(props) {
     var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
     $('.page-item .numBtn').removeClass('active')
     $('.page-item .numBtn[pagenum='+(currentPage - 1)+']').addClass('active')
-    url=process.env.REACT_APP_LocalUrl + "/products?page="+(currentPage-1);
+    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage-1);
     getData();
     if($('.page-item .numBtn[pagenum='+(currentPage - 1)+']').hasClass('firstButton')){
       $('.previousBtn').addClass('disabled')
@@ -339,7 +338,7 @@ function VpsMemberPortal(props) {
     var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
     $('.page-item .numBtn').removeClass('active')
     $('.page-item .numBtn[pagenum='+(currentPage + 1)+']').addClass('active')
-    url=process.env.REACT_APP_LocalUrl + "/products?page="+(currentPage+1);
+    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage+1);
     getData();
     if($('.page-item .numBtn[pagenum='+(currentPage + 1)+']').hasClass('lastButton')){
       $('.nextBtn').addClass('disabled')

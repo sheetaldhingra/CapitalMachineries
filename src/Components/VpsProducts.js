@@ -11,7 +11,7 @@ export default function VpsProducts() {
   const [slideData, setSlideData] = useState([]);
   const headers = {};
   const search = "";
-  var url=process.env.REACT_APP_LocalUrl + "/products?page=1";
+  var url=process.env.REACT_APP_VercelUrl + "/products?page=1";
   const getProductsData = async () => {
     // const res = await fetch(process.env.REACT_APP_VercelUrl + "/products", {
     const res = await fetch(url, {
@@ -77,7 +77,7 @@ export default function VpsProducts() {
     event.stopPropagation();
     $('.numBtn').removeClass('active')
     $(event.target).addClass('active')
-    url=process.env.REACT_APP_LocalUrl + "/products?page="+$(event.target).attr('pagenum');
+    url=process.env.REACT_APP_VercelUrl + "/products?page="+$(event.target).attr('pagenum');
     getProductsData();
     if($(event.target).hasClass('firstButton')){
       $('.previousBtn').addClass('disabled')
@@ -96,7 +96,7 @@ export default function VpsProducts() {
     var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
     $('.page-item .numBtn').removeClass('active')
     $('.page-item .numBtn[pagenum='+(currentPage - 1)+']').addClass('active')
-    url=process.env.REACT_APP_LocalUrl + "/products?page="+(currentPage-1);
+    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage-1);
     getProductsData();
     if($('.page-item .numBtn[pagenum='+(currentPage - 1)+']').hasClass('firstButton')){
       $('.previousBtn').addClass('disabled')
@@ -107,7 +107,7 @@ export default function VpsProducts() {
     var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
     $('.page-item .numBtn').removeClass('active')
     $('.page-item .numBtn[pagenum='+(currentPage + 1)+']').addClass('active')
-    url=process.env.REACT_APP_LocalUrl + "/products?page="+(currentPage+1);
+    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage+1);
     getProductsData();
     if($('.page-item .numBtn[pagenum='+(currentPage + 1)+']').hasClass('lastButton')){
       $('.nextBtn').addClass('disabled')
