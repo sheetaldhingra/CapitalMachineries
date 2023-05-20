@@ -137,7 +137,7 @@ export default function ContactUsForm() {
                   Please provide a valid email address!
                 </div>
               </div>
-              <div className="col-12 pb-2 mb-4">
+              <div className="col-12 pb-2 mb-4 z-1">
                 <label htmlFor="inputmessage" className="form-label fs-base">
                   Message
                 </label>
