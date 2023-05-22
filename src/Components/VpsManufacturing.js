@@ -106,7 +106,7 @@ export default function VpsManufacturing() {
         <div className="row my-4">
         <div className="col-sm-12 col-md-6 my-4 d-flex justify-content-center productImgShadow align-items-center">
             <img
-              src={process.env.PUBLIC_URL + "/IMG_2335.jpg"}
+              src={process.env.PUBLIC_URL + "/MILACRON.jpg"}
               className="img-fluid rounded"
               alt="Logo"
             />
