@@ -22,7 +22,7 @@ export default function VpsSingleProduct(props) {
       <img src={location.state.image} style={{width:'100%'}}  className="img-fluid" alt="logo" />
     </div>
     <div className="col-sm-12 col-md-6">
-    <h2 className="gradient-heading section-heading">{location.state.name}</h2>
+    <h2 className="text-black mb-5 section-heading">{location.state.name}</h2>
       <p className="about-content">{location.state.description}</p>
     </div>
   </div>

@@ -7,19 +7,21 @@ import { useEffect } from "react";
 export default function VpsProductSlider() {
   const [slideData, setSlideData] = useState([]);
   const navigate = useNavigate();
+  var slides = [];
+  var slideClick = [];
   const sliderClick = (index) => {
     navigate("/singleProduct", {
       state: {
-        name: slides[index].title,
-        description: slides[index].description,
-        image: slides[index].image,
+        name: slideClick[index].title,
+        description: slideClick[index].description,
+        image: slideClick[index].image,
       },
     });
     $("#navbarTogglerDemo02").find(".nav-link").removeClass("active");
     $("#navbarTogglerDemo02").find(".products").addClass("active");
   };
   const headers = {};
-  var slides = [];
+  
   const search = "";
   const getProductsData = async () => {
     $('.moldLoader').addClass('d-flex').removeClass('d-none');
@@ -49,6 +51,12 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             setSlideData(slides);
