@@ -92,7 +92,7 @@ export default function About() {
                     <div className="elementor-widget-container">
                       <div className="elementor-text-editor elementor-clearfix">
                         <p className="text-light">
-                          Established in 1997 under SI(Small Scale Ind.), V. P.
+                          Established in 1997 under SSI(Small Scale Ind.), V. P.
                           S. Engineering Corp. first specialized in analyzing
                           and developing the precision Molds and Dies. Located
                           in Sector-37, Pace City-2, Gurugram, we give
@@ -105,8 +105,8 @@ export default function About() {
                           services since its inception and feels proud to deal
                           with many big companies in all over India. With
                           competent engineers of varied skills, precised CNC
-                          milling, Drilling, Grinding, Lathe machining, EDM,
-                          Injection molding and we have pursued excellence and
+                          milling, Drilling, Grinding, Lathe machining, EDM and
+                          Injection molding we have pursued excellence and
                           within a brief period of time we are able to cope up
                           with the needs and specifications of our customers.
                         </p>

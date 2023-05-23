@@ -31,7 +31,7 @@ export default function VpsProductView() {
               className="text-dark position-relative productviewheading section-heading"
               style={{ position: "relative", top: "25%!important" }}
             >
-              Precision molds, limitless possibilities: VPS Engineering Company
+              Precision molds, limitless possibilities: VPS Engineering Corporation
             </h1>
           </div>
           <div

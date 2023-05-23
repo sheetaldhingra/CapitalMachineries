@@ -8,6 +8,7 @@ import Chooseus from "./Chooseus";
 import VpsFooter from "./VpsFooter";
 import VpsMachinery from "./VpsMachinery";
 import $ from "jquery"
+import { FiPlus } from "react-icons/fi";
 import VpsProductView from "./VpsProductView";
 export default function HomePage() {
   const obsOptions = {};
@@ -31,7 +32,8 @@ export default function HomePage() {
                   counter.innerText = Math.ceil(data + time);
                   setTimeout(animate, 50);
                 }else{
-                  counter.innerText = value;
+                  $(counter).html(value)
+                  $('.clientVal:last').html(value + "+")
                 }
              
            }
@@ -57,10 +59,12 @@ counters.forEach( counter => {
      
       const time = value / speed;
      if(data < value) {
+      console.log($(counter));
           counter.innerText = Math.ceil(data + time);
           setTimeout(animate, 1);
         }else{
-          counter.innerText = value;
+          $(counter).html(value)
+          $('.clientVal:last').html(value + "+")
         }
      
    }
@@ -97,8 +101,8 @@ counters.forEach( counter => {
               alt="Generic placeholder image"
               width="48"
             /> */}
-            <h1 className="clientVal d-flex justify-content-center align-items-center" clientnum='500'>0</h1>
-            <p className="d-flex justify-content-center align-items-center">Happy Clients</p>
+            <h1 className="clientVal d-flex justify-content-center align-items-center" clientnum='5000'>0<span><FiPlus /></span></h1>
+            <p className="d-flex justify-content-center align-items-center">Mould Manufactured</p>
           </div>
           <div className="col-lg-4">
             {/* <img

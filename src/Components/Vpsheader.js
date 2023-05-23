@@ -78,7 +78,7 @@ export default function Vpsheader() {
             href="#"
           >
             Call Us: <BsPhone />
-            +91-124-4367199
+            +91-8826484591
           </Link>
         </div>
       </nav>
