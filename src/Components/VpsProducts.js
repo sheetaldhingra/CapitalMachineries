@@ -21,9 +21,13 @@ export default function VpsProducts() {
       .then((response) => {
         if (!response.ok) {
         }
+        $('.moldLoader').removeClass('d-flex').addClass('d-none');
+        $('.moldContent').addClass('d-flex').removeClass('d-none');
         return response.json();
       })
       .then((data) => {
+        $('.moldLoader').removeClass('d-flex').addClass('d-none');
+        $('.moldContent').addClass('d-flex').removeClass('d-none');
         setSlideData(data.myData);
         setTotalRecord(data.nbHits);
         setMaxPageNum(Math.ceil(totalRecord / 10));
@@ -119,7 +123,28 @@ export default function VpsProducts() {
       {/* <Vpsheader /> */}
       {slideData.map((item, index) => {
         return (
-          <div className="col-md-6" key={item._id}>
+          <>
+          <div className="container d-flex justify-content-center my-5 moldLoader">
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+          <div className="col-md-6 moldContent" key={item._id}>
             <div className="row g-0 border productBoxShadow rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div className="col p-4 d-flex flex-column position-static">
                 <strong className="d-inline-block mb-2 text-primary"></strong>
@@ -154,6 +179,7 @@ export default function VpsProducts() {
               </div>
             </div>
           </div>
+          </>
         );
         // if ((index + 1) % 2 === 1 ) {
         //   return (
