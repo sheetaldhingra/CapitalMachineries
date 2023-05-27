@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "../Style/VpsProductsview.css";
 import { ImQuotesLeft } from "react-icons/im";
+import { ImQuotesRight } from "react-icons/im";
 
 export default function VpsProductView() {
   const obsOptions = {};
@@ -19,7 +20,8 @@ export default function VpsProductView() {
   return (
     <div
       className="rounded mb-2"
-      style={{ backgroundColor: "rgb(105 105 105 / 13%)" }}
+      // style={{ backgroundColor: "rgb(105 105 105 / 13%)" }}
+      style={{ backgroundColor: "#D4D4D4" }}
     >
       <div className="container" id="productGallery">
         <div className="row">
@@ -31,7 +33,7 @@ export default function VpsProductView() {
               className="text-dark position-relative productviewheading section-heading"
               style={{ position: "relative", top: "25%!important" }}
             >
-              Precision molds, limitless possibilities: VPS Engineering Corporation
+              Precision molds, limitless possibilities: <strong>VPS Engineering Corporation</strong>
             </h1>
           </div>
           <div
@@ -45,7 +47,7 @@ export default function VpsProductView() {
           >
             <div className="col-sm-12 col-md-6 imageanimate productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/CAR PARTS.jpg"}
+                src={process.env.PUBLIC_URL + "/HPDCZINCMOLD.jpg"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={800}
@@ -54,7 +56,7 @@ export default function VpsProductView() {
             </div>
             <div className="col-sm-12 col-md-6 productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/ORINGS&SWR_RINGS.jpg"}
+                src={process.env.PUBLIC_URL + "/BLOWMOLD.jpg"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={402}
@@ -63,7 +65,7 @@ export default function VpsProductView() {
             </div>
             <div className="col-sm-12 col-md-6 productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/RUBBER&PLASTICPARTS.jpg"}
+                src={process.env.PUBLIC_URL + "/SLIDERMOLD.jpg"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={350}
@@ -72,7 +74,7 @@ export default function VpsProductView() {
             </div>
             <div className="col-sm-12 col-md-6 productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/SWR RINGS.jpg"}
+                src={process.env.PUBLIC_URL + "/STIPPERPLATEMOLD.jpg"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={350}
@@ -86,7 +88,10 @@ export default function VpsProductView() {
             <ImQuotesLeft />
           </h1>
           <h1 className="my-5">
-            Empowering innovation through precision molds
+            Empowering innovation through precision molds.
+          </h1>
+          <h1 className="mx-4 productQuote">
+            <ImQuotesRight />
           </h1>
         </div>
       </div>

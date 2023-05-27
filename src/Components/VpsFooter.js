@@ -9,7 +9,7 @@ export default function VpsFooter() {
       <Container>
         <Row>
           <Col md={4}>
-            <h5>Company</h5>
+            <h5><strong>Company</strong></h5>
             <ul className="list-unstyled">
               <li><Link to="/">About Us</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
@@ -17,16 +17,17 @@ export default function VpsFooter() {
             </ul>
           </Col>
           <Col md={4}>
-            <h5>Facilities</h5>
+            <h5><strong>Facilities</strong></h5>
             <ul className="list-unstyled">
               <li><Link to="/facilities">Laser Engraving</Link></li>
               <li><Link to="/facilities">CNC EDM</Link></li>
               <li><Link to="/facilities">Surface Grinding</Link></li>
               <li><Link to="/facilities">Injection Moulding</Link></li>
+              <li><Link to="/facilities">Blow Moulding</Link></li>
             </ul>
           </Col>
           <Col md={4}>
-            <h5>Stay Connected</h5>
+            <h5><strong>Stay Connected</strong></h5>
             <ul className="list-unstyled d-flex social-icons">
               <li className="m-2"><Link to="/"><FontAwesomeIcon icon={faFacebook} /></Link></li>
               <li className="m-2"><Link to="/"><FontAwesomeIcon icon={faTwitter} /></Link></li>

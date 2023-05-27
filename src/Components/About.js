@@ -66,7 +66,7 @@ export default function About() {
                     data-widget_type="heading.default"
                   >
                     <div className="elementor-widget-container">
-                      <p className="elementor-heading-title elementor-size-default elementor-heading-title elementor-size-default elementor-align-after-mobile-center text-light">
+                      <p className="elementor-heading-title d-none elementor-size-default elementor-heading-title elementor-size-default elementor-align-after-mobile-center text-light">
                         About Us
                       </p>{" "}
                     </div>
@@ -93,20 +93,20 @@ export default function About() {
                       <div className="elementor-text-editor elementor-clearfix">
                         <p className="text-light">
                           Established in 1997 under SSI(Small Scale Ind.), V. P.
-                          S. Engineering Corp. first specialized in analyzing
+                          S. Engineering Corporation first specialized in analyzing
                           and developing the precision Molds and Dies. Located
                           in Sector-37, Pace City-2, Gurugram, we give
                           importance to safety, convenient work and serene
                           surroundings.
                         </p>
                         <p className="text-light">
-                          V. P. S. Engineering Corp. has completed its{" "}
+                          V. P. S. Engineering Corporation has completed its{" "}
                           {new Date().getFullYear() - 1997} years of successful
                           services since its inception and feels proud to deal
                           with many big companies in all over India. With
                           competent engineers of varied skills, precised CNC
-                          milling, Drilling, Grinding, Lathe machining, EDM and
-                          Injection molding we have pursued excellence and
+                          milling, Grinding, Lathe machining, EDM and
+                          Injection molding, we have pursued excellence and
                           within a brief period of time we are able to cope up
                           with the needs and specifications of our customers.
                         </p>

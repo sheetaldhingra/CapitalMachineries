@@ -42,7 +42,7 @@ export default function ImageSlider() {
             width: "100%",
           }}
         >
-          We manufacture molds with high class quality
+          We manufacture molds with high class quality.
         </h1>
         <button
           className="rounded z-2 btn viewmoldbtn"
@@ -86,13 +86,13 @@ export default function ImageSlider() {
                 alt="Third slide"
               />
             </Carousel.Item>
-            <Carousel.Item>
+            {/* <Carousel.Item>
               <img
                 className="d-block w-100"
                 src={process.env.PUBLIC_URL + "/MILACRON N SERIES 200.jpg"}
                 alt="Third slide"
               />
-            </Carousel.Item>
+            </Carousel.Item> */}
             <Carousel.Item>
               <img
                 className="d-block w-100"

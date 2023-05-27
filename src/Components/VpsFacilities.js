@@ -79,6 +79,22 @@ export default function VpsFacilities() {
               </button>
             </div>
           </div>
+          <div className="col d-flex mb-4 align-items-start">
+            <div className="icon-square text-body-emphasis rounded bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+              {/* <BiAtom /> */}
+              <img src={process.env.PUBLIC_URL + "/icons8-molding-apparatus-100.png"} alt="Injection Moulding" width={96} height={96} />
+            </div>
+            <div>
+              <h3 className="fs-2">Blow Moulding</h3>
+              <p>
+                250 tonn moulding facility makes it effortless to manufacture
+                parts weighing upto 500 grams.
+              </p>
+              <button href="#" className="btn btn-primary" onClick={navigateToContact}>
+                Enquire Now
+              </button>
+            </div>
+          </div>
         </div>
         <hr />
       </div>

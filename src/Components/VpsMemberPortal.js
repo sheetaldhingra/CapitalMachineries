@@ -417,8 +417,8 @@ for (let i = 0; i < binaryData.length; i++) {
     let url = "";
     if (valid) {
       if ($(event.target).attr("product_id") !== undefined) {
-        // url = process.env.REACT_APP_VercelUrl + "/products/updateproducts";
-        url = process.env.REACT_APP_LocalUrl+ "/products/updateproducts";
+        url = process.env.REACT_APP_VercelUrl + "/products/updateproducts";
+        // url = process.env.REACT_APP_LocalUrl+ "/products/updateproducts";
         product = {
           id: $(event.target).attr("product_id"),
           title: $("#product-title").val(),

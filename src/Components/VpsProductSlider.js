@@ -76,7 +76,7 @@ export default function VpsProductSlider() {
         className="d-flex align-items-center justify-content-center mb-4"
         id="moldRange"
       >
-        Our Mold Range
+        Molds manufactured for parts...
       </h1>
       <div className="container d-flex justify-content-center my-5 moldLoader">
         <div className="spinner-grow spinner-grow-sm mx-1" role="status">

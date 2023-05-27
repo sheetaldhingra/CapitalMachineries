@@ -32,8 +32,8 @@ export default function HomePage() {
                   counter.innerText = Math.ceil(data + time);
                   setTimeout(animate, 50);
                 }else{
-                  $(counter).html(value)
-                  $('.clientVal:last').html(value + "+")
+                  $(counter).html(value + "+")
+                  // $('.clientVal:last').html(value + "+")
                 }
              
            }
@@ -49,28 +49,9 @@ export default function HomePage() {
     });
   }, [obsOptions]);
 
-  const counters = document.querySelectorAll('.clientVal');
-const speed = 100;
 
-counters.forEach( counter => {
-   const animate = () => {
-      const value = +counter.getAttribute('clientnum');
-      const data = +counter.innerText;
-     
-      const time = value / speed;
-     if(data < value) {
-      console.log($(counter));
-          counter.innerText = Math.ceil(data + time);
-          setTimeout(animate, 1);
-        }else{
-          $(counter).html(value)
-          $('.clientVal:last').html(value + "+")
-        }
-     
-   }
-   
-   animate();
-});
+
+
 
   return (
     <>
@@ -91,8 +72,8 @@ counters.forEach( counter => {
               alt="Generic placeholder image"
               width="48"
             /> */}
-            <h1 className="clientVal d-flex justify-content-center align-items-center" clientnum='100'>0</h1>
-            <p className="d-flex justify-content-center align-items-center">Clients across India</p>
+            <h1 className="clientVal d-flex justify-content-center align-items-center" clientnum='100'>0<span className="plusIcon"><FiPlus /></span></h1>
+            <p className="d-flex justify-content-center align-items-center"><strong>Clients across India</strong></p>
           </div>
           <div className="col-lg-4">
             {/* <img
@@ -101,8 +82,8 @@ counters.forEach( counter => {
               alt="Generic placeholder image"
               width="48"
             /> */}
-            <h1 className="clientVal d-flex justify-content-center align-items-center" clientnum='5000'>0<span><FiPlus /></span></h1>
-            <p className="d-flex justify-content-center align-items-center">Mould Manufactured</p>
+            <h1 className="clientVal d-flex justify-content-center align-items-center" clientnum='5000'>0<span className="plusIcon"><FiPlus /></span></h1>
+            <p className="d-flex justify-content-center align-items-center"><strong>Moulds Manufactured</strong></p>
           </div>
           <div className="col-lg-4">
             {/* <img
