@@ -107,7 +107,7 @@ export default function ContactUsForm() {
             <h2 className="h1 pb-3">Don’t Hesitate to Contact Us</h2>
           </div>
           <form
-            className="col-lg-6 col-md-7 offset-xl-1 needs-validation"
+            className="col-lg-6 col-md-7 z-1 offset-xl-1 needs-validation"
             noValidate=""
           >
             <div className="row">
