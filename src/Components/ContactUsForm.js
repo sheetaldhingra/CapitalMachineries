@@ -43,8 +43,9 @@ export default function ContactUsForm() {
       //     )
       // }
       let dataSend = {
+        name: $("#inputName").val(),
         email: $("#inputPassword3").val(),
-        subject: $("#inputName").val(),
+        subject: 'New Enquiry!',
         message:
           "<strong>User Email : " +
           $("#inputPassword3").val() +
@@ -54,7 +55,8 @@ export default function ContactUsForm() {
           $("#inputmessage").val() +
           "</strong>",
       };
-      const res = await fetch(process.env.REACT_APP_VercelUrl + "/email/sendEmail", {
+      // const res = await fetch(process.env.REACT_APP_VercelUrl + "/email/sendEmail", {
+      const res = await fetch("http://localhost:5000/api/email/sendEmail", {
         method: "POST",
         body: JSON.stringify(dataSend),
         headers: {

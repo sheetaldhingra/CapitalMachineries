@@ -15,6 +15,7 @@ import AddMachines from './Components/AddMachines';
 import VpsBootstrapAboutus from './Components/VpsBootstrapAboutus';
 import VpsManufacturing from './Components/VpsManufacturing';
 import VpsResultPage from './Components/VpsResultPage';
+import Comingsoon from './Components/Comingsoon';
 function App() {
   return (
     <>
@@ -30,7 +31,8 @@ function App() {
     {/* <Route exact path="/about" element={<VpsAboutUs/>} /> */}
     <Route exact path="/about" element={<VpsBootstrapAboutus/>} />
     <Route exact path="/facilities" element={<VpsFacilities/>} />
-    <Route exact path="/manufacture" element={<VpsManufacturing/>} />
+    {/* <Route exact path="/manufacture" element={<VpsManufacturing/>} /> */}
+    <Route exact path="/manufacture" element={<Comingsoon />} />
     <Route exact path="/memberlogin/Addmachines" element={<AddMachines/>} />
     <Route exact path="/searchResult" element={<VpsResultPage/>} />
   </Routes>
