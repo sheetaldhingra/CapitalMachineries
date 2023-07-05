@@ -93,7 +93,7 @@ export default function HomePage() {
               width="48"
             /> */}
             <h1 className="d-flex justify-content-center align-items-center">{new Date().getFullYear() - 1997}</h1>
-            <p className="d-flex justify-content-center align-items-center">Years in Industry</p>
+            <p className="d-flex justify-content-center align-items-center"><strong>Years in Industry</strong></p>
           </div>
         </div>
       </div>
