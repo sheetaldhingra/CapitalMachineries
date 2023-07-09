@@ -74,7 +74,7 @@ export default function Vpsheader() {
             </li>
           </ul>
           <Link
-            className="navbar-brand d-flex align-items-center text-light"
+            className="navbar-brand d-flex align-items-center text-light headerNum"
             href="#"
           >
             Call Us: <BsPhone />
