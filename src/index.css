@@ -126,16 +126,12 @@ path, p{
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .headerNum{
-    font-size: 10px;
-  }
+  
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .headerNum{
-    font-size: 10px;
-  }
+  
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
