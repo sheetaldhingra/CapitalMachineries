@@ -77,7 +77,6 @@ export default function ImageSlider() {
                 className="d-block w-100"
                 src={process.env.PUBLIC_URL + "/weldingmachine/greatyuva1.jpg"}
                 alt="Second slide"
-                height="600px"
               />
             </Carousel.Item>
             <Carousel.Item>
@@ -85,7 +84,6 @@ export default function ImageSlider() {
                 className="d-block w-100"
                 src={process.env.PUBLIC_URL + "/weldingmachine/intig_316_ac_dc.jpg"}
                 alt="Third slide"
-                height="600px"
               />
             </Carousel.Item>
             {/* <Carousel.Item>
@@ -100,7 +98,6 @@ export default function ImageSlider() {
                 className="d-block w-100"
                 src={process.env.PUBLIC_URL + "/weldingmachine/mig_welding_machine.jpg"}
                 alt="Third slide"
-                height="600px"
               />
             </Carousel.Item>
             <Carousel.Item>
@@ -108,7 +105,6 @@ export default function ImageSlider() {
                 className="d-block w-100"
                 src={process.env.PUBLIC_URL + "/weldingmachine/warpp.jpg"}
                 alt="Third slide"
-                height="600px"
               />
             </Carousel.Item>
             <Carousel.Item>
@@ -116,7 +112,6 @@ export default function ImageSlider() {
                 className="d-block w-100"
                 src={process.env.PUBLIC_URL + "/weldingmachine/yuva_300.jpg"}
                 alt="Third slide"
-                height="600px"
               />
             </Carousel.Item>
             {/* <Carousel.Item  >
