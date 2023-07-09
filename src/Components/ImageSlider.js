@@ -42,9 +42,9 @@ export default function ImageSlider() {
             width: "100%",
           }}
         >
-          We manufacture molds with high class quality.
+          Trusted name in welding machine
         </h1>
-        <button
+        {/* <button
           className="rounded z-2 btn viewmoldbtn"
           style={{
             color: "white",
@@ -58,13 +58,13 @@ export default function ImageSlider() {
           onClick={scroll}
         >
           View Molds
-        </button>
+        </button> */}
         <div className="mb-4 carousel slide carousel-fade">
           <Carousel className="mb-4" fade>
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/Home.jpg"}
+                src={process.env.PUBLIC_URL + "/weldingmachine/greatyuva.jpg"}
                 alt="First slide"
               />
               {/* <Carousel.Caption>
@@ -75,15 +75,17 @@ export default function ImageSlider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/Home (2).jpg"}
+                src={process.env.PUBLIC_URL + "/weldingmachine/greatyuva1.jpg"}
                 alt="Second slide"
+                height="600px"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/Haas VM 3.jpg"}
+                src={process.env.PUBLIC_URL + "/weldingmachine/intig_316_ac_dc.jpg"}
                 alt="Third slide"
+                height="600px"
               />
             </Carousel.Item>
             {/* <Carousel.Item>
@@ -96,59 +98,27 @@ export default function ImageSlider() {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/20230422_114556.jpg"}
+                src={process.env.PUBLIC_URL + "/weldingmachine/mig_welding_machine.jpg"}
                 alt="Third slide"
+                height="600px"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/ACCUTE X CNC EDM.jpg"}
+                src={process.env.PUBLIC_URL + "/weldingmachine/warpp.jpg"}
                 alt="Third slide"
+                height="600px"
               />
             </Carousel.Item>
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/Hantian ma1200.jpg"}
+                src={process.env.PUBLIC_URL + "/weldingmachine/yuva_300.jpg"}
                 alt="Third slide"
+                height="600px"
               />
             </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/KENT 510 SURFACE GRENDER.jpg"}
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/KG VMC.jpg"}
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/KINGSTEN VMC.jpg"}
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item  >
-        <img
-          className="d-block w-100"
-          src={process.env.PUBLIC_URL + '/LOKESH CNC.jpg'}
-          alt="Third slide"
-        />
-      </Carousel.Item>
-            <Carousel.Item  >
-        <img
-          className="d-block w-100"
-          src={process.env.PUBLIC_URL + '/MILACRON.jpg'}
-          alt="Third slide"
-        />
-      </Carousel.Item>
             {/* <Carousel.Item  >
         <img
           className="d-block w-100"

@@ -33,7 +33,7 @@ export default function VpsProductView() {
               className="text-dark position-relative productviewheading section-heading"
               style={{ position: "relative", top: "25%!important" }}
             >
-              Precision molds, limitless possibilities: <strong>VPS Engineering Corporation</strong>
+              <strong>Solution for all type of welding & cutting equipments</strong>
             </h1>
           </div>
           <div
@@ -47,7 +47,7 @@ export default function VpsProductView() {
           >
             <div className="col-sm-12 col-md-6 imageanimate productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/HPDCZINCMOLD.jpg"}
+                src={process.env.PUBLIC_URL + "/400machine.png"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={800}
@@ -56,7 +56,7 @@ export default function VpsProductView() {
             </div>
             <div className="col-sm-12 col-md-6 productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/BLOWMOLD.jpg"}
+                src={process.env.PUBLIC_URL + "/400machinep.png"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={402}
@@ -65,7 +65,7 @@ export default function VpsProductView() {
             </div>
             <div className="col-sm-12 col-md-6 productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/SLIDERMOLD.jpg"}
+                src={process.env.PUBLIC_URL + "/300machine.png"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={350}
@@ -74,7 +74,7 @@ export default function VpsProductView() {
             </div>
             <div className="col-sm-12 col-md-6 productImgShadow">
               <img
-                src={process.env.PUBLIC_URL + "/STIPPERPLATEMOLD.jpg"}
+                src={process.env.PUBLIC_URL + "/200machine.png"}
                 className="img-fluid rounded m-2"
                 alt="Product"
                 width={350}

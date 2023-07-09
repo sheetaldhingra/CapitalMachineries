@@ -78,7 +78,7 @@ export default function Vpsheader() {
             href="#"
           >
             Call Us: <BsPhone />
-            +91-8826484591
+            +91-9810136997, 9810938527
           </Link>
         </div>
       </nav>
@@ -90,13 +90,13 @@ export default function Vpsheader() {
         <div className="container-fluid">
           <Link className="navbar-brand logo" to="/">
             <img
-              src={process.env.PUBLIC_URL + "/vpslogo.png"}
+              src={process.env.PUBLIC_URL + "/weldingmachine/logo.png"}
               alt="Logo"
               height="45"
               className="d-inline-block "
             />
             <strong className="m-2 text-light">
-              V.P.S Engineering Corporation
+              Capital Machineries
             </strong>
           </Link>
           {/* <Link className="navbar-brand" href="#">VPS Engineering Corporation</Link> */}
