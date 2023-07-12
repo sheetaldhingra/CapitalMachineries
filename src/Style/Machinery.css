@@ -7,3 +7,84 @@
     transition: opacity 1.5s ease-in-out;
     transition-delay: .1s;
 }
+@media screen and (max-width: 767px){   
+    #firstImage{      
+        content:url("../../public/weldingmachine/firstSlide.jpeg");
+    } 
+    #secondImage{      
+        content:url("../../public/weldingmachine/secondSlide.jpg");
+    } 
+    #thirdImage{      
+        content:url("../../public/weldingmachine/thirdSlide.jpg");
+    } 
+    #fourthImage{      
+        content:url("../../public/weldingmachine/fourthSlide.jpeg");
+    } 
+    #fifthImage{      
+        content:url("../../public/weldingmachine/fifthSlide.jpg");
+    }
+    #sixthImage{      
+        content:url("../../public/weldingmachine/sixthSlide.jpg");
+    }
+}
+
+@media screen and (min-width: 768px) {      
+    #firstImage{      
+        content:url("../../public/weldingmachine/firstSlide.jpeg");
+    } 
+    #secondImage{      
+        content:url("../../public/weldingmachine/secondSlide.jpg");
+    } 
+    #thirdImage{      
+        content:url("../../public/weldingmachine/thirdSlide.jpg");
+    } 
+    #fourthImage{      
+        content:url("../../public/weldingmachine/fourthSlide.jpeg");
+    } 
+    #fifthImage{      
+        content:url("../../public/weldingmachine/fifthSlide.jpg");
+    }
+    #sixthImage{      
+        content:url("../../public/weldingmachine/sixthSlide.jpg");
+    }
+} 
+@media (min-width: 992px){      
+    #firstImage{      
+        content:url("../../public/weldingmachine/firstSlide.jpeg");
+    } 
+    #secondImage{      
+        content:url("../../public/weldingmachine/secondSlide.jpg");
+    } 
+    #thirdImage{      
+        content:url("../../public/weldingmachine/thirdSlide.jpg");
+    } 
+    #fourthImage{      
+        content:url("../../public/weldingmachine/fourthSlide.jpeg");
+    } 
+    #fifthImage{      
+        content:url("../../public/weldingmachine/fifthSlide.jpg");
+    }
+    #sixthImage{      
+        content:url("../../public/weldingmachine/sixthSlide.jpg");
+    }
+}
+@media (min-width: 1200px) {    
+     #firstImage{         
+         content:url("../../public/weldingmachine/greatyuva.jpg");   
+     } 
+     #secondImage{      
+        content:url("../../public/weldingmachine/greatyuva1.jpg");
+    } 
+    #thirdImage{      
+        content:url("../../public/weldingmachine/intig_316_ac_dc.jpg");
+    } 
+    #fourthImage{      
+        content:url("../../public/weldingmachine/mig_welding_machine.jpg");
+    } 
+    #fifthImage{      
+        content:url("../../public/weldingmachine/warpp.jpg");
+    }
+    #sixthImage{      
+        content:url("../../public/weldingmachine/yuva_300.jpg");
+    }
+}

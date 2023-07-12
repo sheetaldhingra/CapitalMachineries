@@ -22,15 +22,19 @@ function App() {
     <Router>
     <Routes>
     <Route exact path="/" element={<HomePage />} />
-    <Route exact path="/singleProduct" element={<VpsSingleProduct/>} />
-    <Route exact path="/contact" element={<ContactUs/>} />
+    {/* <Route exact path="/singleProduct" element={<VpsSingleProduct/>} /> */}
+    <Route exact path="/singleProduct" element={<Comingsoon/>} />
+    {/* <Route exact path="/contact" element={<ContactUs/>} /> */}
+    <Route exact path="/contact" element={<Comingsoon/>} />
     <Route exact path="/memberlogin" element={<MemberLogin/>} />
     <Route exact path="/memberlogin/MemberPortal" element={<VpsMemberPortal/>} />
-    <Route exact path="/products" element={<VpsProductsBootStrap/>} />
+    {/* <Route exact path="/products" element={<VpsProductsBootStrap/>} /> */}
+    <Route exact path="/products" element={<Comingsoon/>} />
     {/* <Route exact path="/products" element={<VpsProductsBootStrap/>} /> */}
     {/* <Route exact path="/about" element={<VpsAboutUs/>} /> */}
     <Route exact path="/about" element={<VpsBootstrapAboutus/>} />
-    <Route exact path="/facilities" element={<VpsFacilities/>} />
+    {/* <Route exact path="/facilities" element={<VpsFacilities/>} /> */}
+    <Route exact path="/facilities" element={<Comingsoon/>} />
     {/* <Route exact path="/manufacture" element={<VpsManufacturing/>} /> */}
     <Route exact path="/manufacture" element={<Comingsoon />} />
     <Route exact path="/memberlogin/Addmachines" element={<AddMachines/>} />
