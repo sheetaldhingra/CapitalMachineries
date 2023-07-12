@@ -62,7 +62,7 @@ export default function HomePage() {
         <div className="row">
           <div className="col-lg-4">
             <img
-              className="mb-4 mx-auto"
+              className="d-flex mb-4 mx-auto"
               src={process.env.PUBLIC_URL + "/award1.png"}
               alt="Generic placeholder image"
               width="48"
@@ -85,7 +85,7 @@ export default function HomePage() {
           </div>
           <div className="col-lg-4">
             <img
-              className="mb-4 mx-auto"
+              className="d-flex mb-4 mx-auto"
               src={process.env.PUBLIC_URL + "/team1.png"}
               alt="Generic placeholder image"
               width="48"
@@ -111,7 +111,7 @@ export default function HomePage() {
           </div>
           <div className="col-lg-4">
             <img
-              className="mb-4 mx-auto"
+              className="d-flex mb-4 mx-auto"
               src={process.env.PUBLIC_URL + "/year.png"}
               alt="Generic placeholder image"
               width="48"
