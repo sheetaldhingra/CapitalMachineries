@@ -141,15 +141,15 @@ export default function Vpsheader() {
           Products
           </Link>
           <ul className="dropdown-menu productsList">
-            <li><Link className="dropdown-item nav-link" to="/">Bosch</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/">Forte</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/">Sandhu</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/bosch">Bosch</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/forte">Forte</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/sandhu">Sandhu</Link></li>
             <li><Link className="dropdown-item nav-link" to="/products/greatyuva">Great Yuva</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/">Dura Shine</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/">Heapro</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/">Ralli Wolf</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/">Star Blaze</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/">Warpp</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/dura-shine">Dura Shine</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/heapro">Heapro</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/ralli">Ralli Wolf</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/starblaze">Star Blaze</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/warpp">Warpp</Link></li>
           </ul>
         </li>
               {/* <li className="nav-item">

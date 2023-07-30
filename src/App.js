@@ -34,6 +34,14 @@ function App() {
     {/* <Route exact path="/products" element={<Comingsoon/>} /> */}
     <Route exact path="/products" element={<ProductDetail/>} />
     <Route exact path="/products/greatyuva" element={<GreatYuvaProducts/>} />
+    <Route exact path="/products/bosch" element={<Comingsoon/>} />
+    <Route exact path="/products/forte" element={<Comingsoon/>} />
+    <Route exact path="/products/sandhu" element={<Comingsoon/>} />
+    <Route exact path="/products/dura-shine" element={<Comingsoon/>} />
+    <Route exact path="/products/heapro" element={<Comingsoon/>} />
+    <Route exact path="/products/ralli" element={<Comingsoon/>} />
+    <Route exact path="/products/starblaze" element={<Comingsoon/>} />
+    <Route exact path="/products/warpp" element={<Comingsoon/>} />
     {/* <Route exact path="/about" element={<VpsAboutUs/>} /> */}
     <Route exact path="/about" element={<VpsBootstrapAboutus/>} />
     {/* <Route exact path="/facilities" element={<VpsFacilities/>} /> */}
