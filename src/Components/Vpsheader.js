@@ -136,7 +136,23 @@ export default function Vpsheader() {
                   About Us
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item dropdown">
+          <Link className="nav-link dropdown-toggle" to="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Products
+          </Link>
+          <ul className="dropdown-menu productsList">
+            <li><Link className="dropdown-item nav-link" to="/">Bosch</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/">Forte</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/">Sandhu</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/products/greatyuva">Great Yuva</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/">Dura Shine</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/">Heapro</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/">Ralli Wolf</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/">Star Blaze</Link></li>
+            <li><Link className="dropdown-item nav-link" to="/">Warpp</Link></li>
+          </ul>
+        </li>
+              {/* <li className="nav-item">
                 <Link
                   className="nav-link products"
                   onClick={showHideNavMenu}
@@ -144,7 +160,7 @@ export default function Vpsheader() {
                 >
                   Products
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link
                   className="nav-link facilities"

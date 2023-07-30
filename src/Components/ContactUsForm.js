@@ -7,14 +7,34 @@ export default function ContactUsForm() {
     if (document.getElementById("inputName").value === "") {
       document.getElementById("inputName").classList.add("is-invalid");
     }
-    if (document.getElementById("inputPassword3").value === "") {
-      document.getElementById("inputPassword3").classList.add("is-invalid");
+    else{
+      document.getElementById("inputName").classList.remove("is-invalid");
+    }
+    if (document.getElementById("lastName").value === "") {
+      document.getElementById("lastName").classList.add("is-invalid");
+    }
+    else{
+      document.getElementById("lastName").classList.remove("is-invalid");
+    }
+    if (document.getElementById("inputEmail").value === "") {
+      document.getElementById("inputEmail").classList.add("is-invalid");
+    }
+    else{
+      document.getElementById("inputEmail").classList.remove("is-invalid");
+    }
+    if (document.getElementById("inputNumber").value === "" || document.getElementById("inputNumber").value.length < 10) {
+      document.getElementById("inputNumber").classList.add("is-invalid");
+    }
+    else{
+      document.getElementById("inputNumber").classList.remove("is-invalid");
     }
     if (document.getElementById("inputmessage").value === "") {
       document.getElementById("inputmessage").classList.add("is-invalid");
     } else {
       document.getElementById("inputName").classList.remove("is-invalid");
-      document.getElementById("inputPassword3").classList.remove("is-invalid");
+      document.getElementById("lastName").classList.remove("is-invalid");
+      document.getElementById("inputNumber").classList.remove("is-invalid");
+      document.getElementById("inputEmail").classList.remove("is-invalid");
       document.getElementById("inputmessage").classList.remove("is-invalid");
       // const config ={
       //     Host : "smtp.elasticemail.com",
@@ -36,21 +56,24 @@ export default function ContactUsForm() {
       //         timer: 2500
       //       }).then(
       //         document.getElementById('inputName').value = "",
-      //         document.getElementById('inputPassword3').value = "",
+      //         document.getElementById('inputEmail').value = "",
       //         document.getElementById('inputmessage').value = ""
       //       ),
 
       //     )
       // }
       let dataSend = {
-        name: $("#inputName").val(),
-        email: $("#inputPassword3").val(),
+        name: $("#inputName").val() + " " + $("#lastName").val(),
+        email: $("#inputEmail").val(),
+        number: $("#inputNumber").val(),
         subject: 'New Enquiry!',
         message:
           "<strong>User Email : " +
-          $("#inputPassword3").val() +
+          $("#inputEmail").val() +
+          "</strong><br><strong>User Number : " +
+          $("#inputNumber").val() +
           "</strong><br><strong>User Name : " +
-          $("#inputName").val() +
+          $("#inputName").val() + " " + $("#lastName").val() +
           "</strong><br><strong>User Message : " +
           $("#inputmessage").val() +
           "</strong>",
@@ -71,9 +94,9 @@ export default function ContactUsForm() {
             showConfirmButton: true,
             timer: 2500,
           });
-          $("#inputPassword3").val("");
+          $("#inputEmail").val("");
           $("#inputmessage").val("");
-          $("#inputName").val("");
+          $("#inputName, #lastName, #inputNumber").val("");
         }
       });
     }
@@ -87,9 +110,9 @@ export default function ContactUsForm() {
     //     </div>
     //   </div>
     //   <div className="row mb-3">
-    //     <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">User Email : </label>
+    //     <label htmlFor="inputEmail" className="col-sm-2 col-form-label">User Email : </label>
     //     <div className="col-sm-5">
-    //       <input type="mail" className="form-control" id="inputPassword3" />
+    //       <input type="mail" className="form-control" id="inputEmail" />
     //     </div>
     //   </div>
     //   <div className="row mb-3">
@@ -115,28 +138,58 @@ export default function ContactUsForm() {
             <div className="row">
               <div className="col-sm-6 mb-4">
                 <label htmlFor="inputName" className="form-label fs-base">
-                  Full name
+                  First name
                 </label>
                 <input
                   type="text"
                   id="inputName"
                   className="form-control form-control-lg"
                   required=""
+                  placeholder="First Name"
                 />
-                <div className="invalid-feedback">Please enter your name!</div>
+                <div className="invalid-feedback">Please enter your first name!</div>
+              </div>
+              <div className="col-sm-6 mb-4">
+                <label htmlFor="lastName" className="form-label fs-base">
+                  Last name
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  className="form-control form-control-lg"
+                  required=""
+                  placeholder="Last Name"
+                />
+                <div className="invalid-feedback">Please enter your last name!</div>
               </div>
               <div className="col-sm-6 mb-4 z-1">
-                <label htmlFor="inputPassword3" className="form-label fs-base">
-                  Email
+                <label htmlFor="inputEmail" className="form-label fs-base">
+                  Email Id
                 </label>
                 <input
                   type="email"
-                  id="inputPassword3"
+                  id="inputEmail"
                   className="form-control form-control-lg"
                   required=""
+                  placeholder="Email Id"
                 />
                 <div className="invalid-feedback">
                   Please provide a valid email address!
+                </div>
+              </div>
+              <div className="col-sm-6 mb-4 z-1">
+                <label htmlFor="inputNumber" className="form-label fs-base">
+                  Contact Number
+                </label>
+                <input
+                  type="text"
+                  id="inputNumber"
+                  className="form-control form-control-lg"
+                  required=""
+                  placeholder="Contact Number"
+                />
+                <div className="invalid-feedback">
+                  Please provide a valid contact number!
                 </div>
               </div>
               <div className="col-12 pb-2 mb-4 z-1">
@@ -148,6 +201,7 @@ export default function ContactUsForm() {
                   className="form-control form-control-lg"
                   rows="4"
                   required=""
+                  placeholder="Message"
                 ></textarea>
                 <div className="invalid-feedback">
                   Please enter your message!

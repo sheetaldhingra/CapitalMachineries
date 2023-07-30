@@ -58,9 +58,11 @@ export default function GoToTop() {
         }
         if(150 < winScroll){
             $('.vpsheader').attr('style','--bs-bg-opacity: 0.7');
+            $('.productsList').attr('style','opacity: 0.7');
         }
         else{
             $('.vpsheader').attr('style','--bs-bg-opacity: 1');
+            $('.productsList').attr('style','opacity: 1');
         }
     }
 useEffect(()=>{

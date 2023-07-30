@@ -16,6 +16,8 @@ import VpsBootstrapAboutus from './Components/VpsBootstrapAboutus';
 import VpsManufacturing from './Components/VpsManufacturing';
 import VpsResultPage from './Components/VpsResultPage';
 import Comingsoon from './Components/Comingsoon';
+import ProductDetail from './Components/ProductDetail';
+import GreatYuvaProducts from './Components/GreatYuvaProducts';
 function App() {
   return (
     <>
@@ -24,13 +26,14 @@ function App() {
     <Route exact path="/" element={<HomePage />} />
     {/* <Route exact path="/singleProduct" element={<VpsSingleProduct/>} /> */}
     <Route exact path="/singleProduct" element={<Comingsoon/>} />
-    {/* <Route exact path="/contact" element={<ContactUs/>} /> */}
-    <Route exact path="/contact" element={<Comingsoon/>} />
+    <Route exact path="/contact" element={<ContactUs/>} />
+    {/* <Route exact path="/contact" element={<Comingsoon/>} /> */}
     <Route exact path="/memberlogin" element={<MemberLogin/>} />
     <Route exact path="/memberlogin/MemberPortal" element={<VpsMemberPortal/>} />
     {/* <Route exact path="/products" element={<VpsProductsBootStrap/>} /> */}
-    <Route exact path="/products" element={<Comingsoon/>} />
-    {/* <Route exact path="/products" element={<VpsProductsBootStrap/>} /> */}
+    {/* <Route exact path="/products" element={<Comingsoon/>} /> */}
+    <Route exact path="/products" element={<ProductDetail/>} />
+    <Route exact path="/products/greatyuva" element={<GreatYuvaProducts/>} />
     {/* <Route exact path="/about" element={<VpsAboutUs/>} /> */}
     <Route exact path="/about" element={<VpsBootstrapAboutus/>} />
     {/* <Route exact path="/facilities" element={<VpsFacilities/>} /> */}

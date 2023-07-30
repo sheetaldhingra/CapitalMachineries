@@ -63,7 +63,7 @@ function VpsMemberPortal(props) {
     url =
       searchVal !== ""
         ? process.env.REACT_APP_VercelUrl + "/products" + `?title=` + searchVal
-        : process.env.REACT_APP_VercelUrl + "/products?page=1";
+        : process.env.REACT_APP_LocalUrl + "/products?page=1";
     getData();
     IsLogin =
       sessionStorage.getItem("IsLogin") !== null
@@ -438,6 +438,16 @@ for (let i = 0; i < binaryData.length; i++) {
           // imageBlob:imageBlob,
           ShortDescription: $("#short-desc").val(),
           LongDescription: $("#product-desc").val(),
+          Specification1: $("#specification1").val(),
+          Value1: $("#value1").val(),
+          Specification2: $("#specification2").val(),
+          Value2: $("#value2").val(),
+          Specification3: $("#specification3").val(),
+          Value3: $("#value3").val(),
+          Specification4: $("#specification4").val(),
+          Value4: $("#value4").val(),
+          Specification5: $("#specification5").val(),
+          Value5: $("#value5").val(),
           IsShow: $("#isShow").is(":checked"),
           Active: $("#isActive").is(":checked"),
         };
@@ -608,6 +618,106 @@ for (let i = 0; i < binaryData.length; i++) {
                       className="form-control"
                       id="product-desc"
                     ></textarea>
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="specification1" className="col-form-label">
+                      Specification1:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="specification1"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="value1" className="col-form-label">
+                      Value1:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="value1"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="specification2" className="col-form-label">
+                      Specification2:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="specification2"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="value2" className="col-form-label">
+                      Value2:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="value2"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="specification3" className="col-form-label">
+                      Specification3:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="specification3"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="value3" className="col-form-label">
+                      Value3:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="value3"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="specification4" className="col-form-label">
+                      Specification4:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="specification4"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="value4" className="col-form-label">
+                      Value4:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="value4"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="specification5" className="col-form-label">
+                      Specification5:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="specification5"
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="value5" className="col-form-label">
+                      Value5:
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="value5"
+                    />
                   </div>
                   <div className="mb-3">
                     <input

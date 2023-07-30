@@ -4,14 +4,14 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 
-export default function VpsProducts() {
+export default function VpsProducts(props) {
   const [totalRecord, setTotalRecord] = useState(0);
   const [maxPageNum, setMaxPageNum] = useState(0);
   const [paginationLinksHTML, setpaginationLinksHTML] = useState([]);
   const [slideData, setSlideData] = useState([]);
   const headers = {};
   const search = "";
-  var url=process.env.REACT_APP_VercelUrl + "/products?page=1";
+  var url=process.env.REACT_APP_VercelUrl + "/" + props.url + "?page=1";
   const getProductsData = async () => {
     // const res = await fetch(process.env.REACT_APP_VercelUrl + "/products", {
     const res = await fetch(url, {
@@ -81,7 +81,7 @@ export default function VpsProducts() {
     event.stopPropagation();
     $('.numBtn').removeClass('active')
     $(event.target).addClass('active')
-    url=process.env.REACT_APP_VercelUrl + "/products?page="+$(event.target).attr('pagenum');
+    url=process.env.REACT_APP_VercelUrl + "/" + props.url + "?page="+$(event.target).attr('pagenum');
     getProductsData();
     if($(event.target).hasClass('firstButton')){
       $('.previousBtn').addClass('disabled')
@@ -100,7 +100,7 @@ export default function VpsProducts() {
     var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
     $('.page-item .numBtn').removeClass('active')
     $('.page-item .numBtn[pagenum='+(currentPage - 1)+']').addClass('active')
-    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage-1);
+    url=process.env.REACT_APP_VercelUrl + "/" + props.url + "?page="+(currentPage-1);
     getProductsData();
     if($('.page-item .numBtn[pagenum='+(currentPage - 1)+']').hasClass('firstButton')){
       $('.previousBtn').addClass('disabled')
@@ -111,7 +111,7 @@ export default function VpsProducts() {
     var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
     $('.page-item .numBtn').removeClass('active')
     $('.page-item .numBtn[pagenum='+(currentPage + 1)+']').addClass('active')
-    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage+1);
+    url=process.env.REACT_APP_VercelUrl + "/" + props.url + "?page="+(currentPage+1);
     getProductsData();
     if($('.page-item .numBtn[pagenum='+(currentPage + 1)+']').hasClass('lastButton')){
       $('.nextBtn').addClass('disabled')
@@ -144,41 +144,101 @@ export default function VpsProducts() {
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
-          <div className="col-md-6 moldContent" key={item._id}>
-            <div className="row g-0 border productBoxShadow rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div className="col p-4 d-flex flex-column position-static">
-                <strong className="d-inline-block mb-2 text-primary"></strong>
-                <h3 className="mb-0">{item.title}</h3>
-                <div className="mb-1 text-body-secondary"></div>
-                <p className="card-text mb-auto">{item.LongDescription}</p>
-              </div>
-              <div className="col-auto d-lg-block m-auto">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  width={300}
-                  height={300}
-                  className="bd-placeholder-img img-fluid"
-                />
-                {/* <svg
-                    className="bd-placeholder-img"
-                    width="200"
-                    height="250"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: Thumbnail"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                  >
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#55595c"></rect>
-                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                      Thumbnail
-                    </text>
-                  </svg> */}
-              </div>
-            </div>
-          </div>
+
+      <div className="container">
+      <div className="row">
+        {(index+1) % 2 === 1 ? <>
+        <div className="col-lg-6 mb-3">
+          {/* Product Image */}
+          <img
+            src={item.image}
+            alt={item.title}
+            className="img-fluid"
+          />
+        </div>
+        <div className="col-lg-6 mb-3">
+          {/* Product Description */}
+          <h2>{item.title}</h2>
+          <p>
+          {item.LongDescription}
+          </p>
+
+          {/* Product Specifications */}
+          {item.Specification1 !== "" && item.Specification1 !== undefined && item.Value1 !== "" && item.Value1 !== undefined ? <><h3>Specifications:</h3>
+          <table className="table">
+            <tbody>
+              {item.Specification1 !== "" && item.Value1 !== "" ? <tr>
+                <td>{item.Specification1}</td>
+                <td>{item.Value1}</td>
+              </tr> : ""}
+              {item.Specification2 !== "" && item.Value2 !== "" ? <tr>
+                <td>{item.Specification2}</td>
+                <td>{item.Value2}</td>
+              </tr> : ""}
+              {item.Specification3 !== "" && item.Value3 !== "" ? <tr>
+                <td>{item.Specification3}</td>
+                <td>{item.Value3}</td>
+              </tr> : ""}
+              {item.Specification4 !== "" && item.Value4 !== "" ? <tr>
+                <td>{item.Specification4}</td>
+                <td>{item.Value4}</td>
+              </tr> : ""}
+              {item.Specification5 !== "" && item.Value5 !== "" ? <tr>
+                <td>{item.Specification5}</td>
+                <td>{item.Value5}</td>
+              </tr> : ""}
+              {/* Add more rows for additional specifications */}
+            </tbody>
+          </table></> : ""}
+          
+        </div>
+         </> : <>
+         <div className="col-lg-6 mb-3">
+          {/* Product Description */}
+          <h2>{item.title}</h2>
+          <p>
+          {item.LongDescription}
+          </p>
+
+          {/* Product Specifications */}
+          {item.Specification1 !== "" && item.Specification1 !== undefined && item.Value1 !== "" && item.Value1 !== undefined ? <><h3>Specifications:</h3>
+          <table className="table">
+            <tbody>
+              {item.Specification1 !== "" && item.Value1 !== "" ? <tr>
+                <td>{item.Specification1}</td>
+                <td>{item.Value1}</td>
+              </tr> : ""}
+              {item.Specification2 !== "" && item.Value2 !== "" ? <tr>
+                <td>{item.Specification2}</td>
+                <td>{item.Value2}</td>
+              </tr> : ""}
+              {item.Specification3 !== "" && item.Value3 !== "" ? <tr>
+                <td>{item.Specification3}</td>
+                <td>{item.Value3}</td>
+              </tr> : ""}
+              {item.Specification4 !== "" && item.Value4 !== "" ? <tr>
+                <td>{item.Specification4}</td>
+                <td>{item.Value4}</td>
+              </tr> : ""}
+              {item.Specification5 !== "" && item.Value5 !== "" ? <tr>
+                <td>{item.Specification5}</td>
+                <td>{item.Value5}</td>
+              </tr> : ""}
+              {/* Add more rows for additional specifications */}
+            </tbody>
+          </table></> : ""}
+        </div>
+        <div className="col-lg-6 mb-3">
+          {/* Product Image */}
+          <img
+            src={item.image}
+            alt={item.title}
+            className="img-fluid"
+          />
+        </div>
+        </>}
+      </div>
+    </div>
           </>
         );
         // if ((index + 1) % 2 === 1 ) {
