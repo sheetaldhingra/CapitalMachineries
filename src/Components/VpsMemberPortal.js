@@ -5,7 +5,6 @@ import { Modal, Button } from "react-bootstrap";
 import VpsMemberPortalHeader from "./VpsMemberPortalHeader";
 import "../Style/memberLogin.css";
 import DataTable from "react-data-table-component";
-import { Buffer } from "buffer";
 import Swal from "sweetalert2";
 
 function VpsMemberPortal(props) {
@@ -496,6 +495,21 @@ function VpsMemberPortal(props) {
     } else {
       $("#short-desc").removeClass("is-invalid");
     }
+    if($('#specification1').val() !== ""){
+      valid = $('#value1').val() === "" ? ($("#value1").addClass("is-invalid"), false) : ($("#value1").removeClass("is-invalid"), true);
+    }
+    if($('#specification2').val() !== ""){
+      valid = $('#value2').val() === "" ? ($("#value2").addClass("is-invalid"), false) : ($("#value2").removeClass("is-invalid"), true);
+    }
+    if($('#specification3').val() !== ""){
+      valid = $('#value3').val() === "" ? ($("#value3").addClass("is-invalid"), false) : ($("#value3").removeClass("is-invalid"), true);
+    }
+    if($('#specification4').val() !== ""){
+      valid = $('#value4').val() === "" ? ($("#value4").addClass("is-invalid"), false) : ($("#value4").removeClass("is-invalid"), true);
+    }
+    if($('#specification5').val() !== ""){
+      valid = $('#value5').val() === "" ? ($("#value5").addClass("is-invalid"), false) : ($("#value5").removeClass("is-invalid"), true);
+    }
     let product = {};
     let url = "";
     if (valid) {
@@ -606,7 +620,7 @@ function VpsMemberPortal(props) {
             <option value="">Select</option>
             <option value="bosch">Bosch</option>
             <option value="forte">Forte</option>
-            <option value="sandhu">Sanshu</option>
+            <option value="sandhu">Sandhu</option>
             <option value="products">Great Yuva</option>
             <option value="dura">Dura Shine</option>
             <option value="heapro">Heapro</option>
@@ -704,7 +718,7 @@ function VpsMemberPortal(props) {
                       <option value="">Select</option>
                       <option value="bosch">Bosch</option>
                       <option value="forte">Forte</option>
-                      <option value="sandhu">Sanshu</option>
+                      <option value="sandhu">Sandhu</option>
                       <option value="products">Great Yuva</option>
                       <option value="dura">Dura Shine</option>
                       <option value="heapro">Heapro</option>
@@ -894,35 +908,7 @@ function VpsMemberPortal(props) {
       </>
     );
   } else {
-    return (
-      <div class="error">
-        <div class="container-floud">
-          <div class="col-xs-12 ground-color text-center">
-            <div class="container-error-404">
-              <div class="clip">
-                <div class="shadow">
-                  <span class="digit thirdDigit"></span>
-                </div>
-              </div>
-              <div class="clip">
-                <div class="shadow">
-                  <span class="digit secondDigit"></span>
-                </div>
-              </div>
-              <div class="clip">
-                <div class="shadow">
-                  <span class="digit firstDigit"></span>
-                </div>
-              </div>
-              <div class="msg">
-                OH!<span class="triangle"></span>
-              </div>
-            </div>
-            <h2 class="h1">Sorry! Page not found</h2>
-          </div>
-        </div>
-      </div>
-    );
+    window.location.href = window.location.origin + '/memberlogin/';
   }
 }
 export default VpsMemberPortal;
