@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Style/VpsProducts.css";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 import $ from "jquery";
 
 export default function VpsProducts(props) {
@@ -127,7 +127,7 @@ export default function VpsProducts(props) {
   return (
     <>
       {/* <Vpsheader /> */}
-      {slideData.map((item, index) => {
+      {slideData.length > 0 ? slideData.map((item, index) => {
         return (
           <>
           <div className="container d-flex justify-content-center my-5 moldLoader" key="loadingparent">
@@ -316,7 +316,20 @@ export default function VpsProducts(props) {
         //   </div>
         //   )
         // }
-      })}
+      }) : <div className="coming-soon mt-5">
+      <Container>
+        <Row className="justify-content-center">
+          <Col md={8} className="text-center">
+            <img
+              className="d-block w-100"
+              src={process.env.PUBLIC_URL + "/noresult.jpg"}
+              alt="noResult"
+            />
+          </Col>
+        </Row>
+      </Container>
+    </div>}
+    {slideData.length > 0 ? 
       <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center">
         <li className="page-item ">
@@ -331,7 +344,7 @@ export default function VpsProducts(props) {
           </button>
         </li>
       </ul>
-    </nav>
+    </nav> : ""}
     </>
   );
 }

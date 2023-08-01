@@ -469,6 +469,14 @@ function VpsMemberPortal(props) {
   async function handleSubmit(event) {
     event.preventDefault();
     let valid = true;
+    if($('#product-type').val() ===  ""){
+      $('#product-type').addClass('is-invalid');
+      valid=false;
+    }
+    else{
+      $('#product-type').removeClass('is-invalid') ;
+      valid = true;
+    }
     if ($("#product-title").val() === "" && $("#product-desc").val() === "") {
       $("#product-title").addClass("is-invalid");
       $("#product-desc").addClass("is-invalid");
@@ -551,6 +559,7 @@ function VpsMemberPortal(props) {
           // imageBlob:imageBlob,
           ShortDescription: $("#short-desc").val(),
           LongDescription: $("#product-desc").val(),
+          productType:$("#product-type").children("option:selected").val(),
           Specification1: $("#specification1").val(),
           Value1: $("#value1").val(),
           Specification2: $("#specification2").val(),
