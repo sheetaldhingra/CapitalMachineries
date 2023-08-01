@@ -206,6 +206,7 @@ function VpsMemberPortal(props) {
       .find(".saveBtn")
       .text("update")
       .attr("product_id", event.target.id);
+      $("#exampleModal #product-type").val($('.productEditBtn').attr('product-type'));
       $("#exampleModal #specification1").val($('.productEditBtn').attr('specification1'));
       $("#exampleModal #specification2").val($('.productEditBtn').attr('specification2'));
       $("#exampleModal #specification3").val($('.productEditBtn').attr('specification3'));

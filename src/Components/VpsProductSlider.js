@@ -21,27 +21,326 @@ export default function VpsProductSlider() {
     $("#navbarTogglerDemo02").find(".products").addClass("active");
   };
   const headers = {};
-  
+
   const search = "";
   const getProductsData = async () => {
-    $('.moldLoader').addClass('d-flex').removeClass('d-none');
-    $('.moldContent').removeClass('d-flex').addClass('d-none');
-    // const res = await fetch(process.env.REACT_APP_LocalUrl + "/products?isShow=1", {
-    const res = await fetch(process.env.REACT_APP_VercelUrl + "/products?isShow=1", {
-      method: "GET",
-      headers: headers,
-    })
+    $(".moldLoader").addClass("d-flex").removeClass("d-none");
+    $(".moldContent").removeClass("d-flex").addClass("d-none");
+    slides = [];
+    // const res = await fetch(process.env.REACT_APP_LocalUrl + "/products?isShow=1&page=1&limit=4", {
+    const Boschres = await fetch(
+      process.env.REACT_APP_VercelUrl + "/bosch?isShow=1&page=1&limit=4&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
       .then((response) => {
         if (!response.ok) {
         }
-        $('.moldLoader').removeClass('d-flex').addClass('d-none');
-        $('.moldContent').addClass('d-flex').removeClass('d-none');
         return response.json();
       })
       .then((data) => {
-        $('.moldLoader').removeClass('d-flex').addClass('d-none');
-        $('.moldContent').addClass('d-flex').removeClass('d-none');
-        slides = [];
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const forteres = await fetch(
+      process.env.REACT_APP_VercelUrl + "/forte?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        return response.json();
+      })
+      .then((data) => {
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const sandhures = await fetch(
+      process.env.REACT_APP_VercelUrl + "/sandhu?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        return response.json();
+      })
+      .then((data) => {
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const durares = await fetch(
+      process.env.REACT_APP_VercelUrl + "/dura?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        return response.json();
+      })
+      .then((data) => {
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const heaprores = await fetch(
+      process.env.REACT_APP_VercelUrl + "/heapro?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        return response.json();
+      })
+      .then((data) => {
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const starres = await fetch(
+      process.env.REACT_APP_VercelUrl + "/star?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        return response.json();
+      })
+      .then((data) => {
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const rallires = await fetch(
+      process.env.REACT_APP_VercelUrl + "/ralli?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        return response.json();
+      })
+      .then((data) => {
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const warppres = await fetch(
+      process.env.REACT_APP_VercelUrl + "/warpp?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        return response.json();
+      })
+      .then((data) => {
+        $(data.myData).each(function (pr, prod) {
+          if (
+            (prod.IsShow || prod.IsShow === "true") &&
+            (prod.Active || prod.Active === "true")
+          ) {
+            slides.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.ShortDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            slideClick.push({
+              image: prod.image,
+              title: prod.title,
+              description: prod.LongDescription,
+              clickEvent: () => sliderClick(pr),
+            });
+            //setSlideData(slides);
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    const res = await fetch(
+      process.env.REACT_APP_VercelUrl + "/products?isShow=1&page=1&limit=4",
+      {
+        method: "GET",
+        headers: headers,
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+        }
+        $(".moldLoader").removeClass("d-flex").addClass("d-none");
+        $(".moldContent").addClass("d-flex").removeClass("d-none");
+        return response.json();
+      })
+      .then((data) => {
+        $(".moldLoader").removeClass("d-flex").addClass("d-none");
+        $(".moldContent").addClass("d-flex").removeClass("d-none");
         $(data.myData).each(function (pr, prod) {
           if (
             (prod.IsShow || prod.IsShow === "true") &&
@@ -98,7 +397,10 @@ export default function VpsProductSlider() {
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
-      <div className="mt-4 d-flex justify-content-center align-items-center moldContent" style={{display:'none'}}>
+      <div
+        className="mt-4 d-flex justify-content-center align-items-center moldContent"
+        style={{ display: "none" }}
+      >
         <ReactCardSlider className="sdd" slides={slideData} />
       </div>
       <div className="container d-flex justify-content-center my-5">
