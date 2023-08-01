@@ -52,18 +52,25 @@ function VpsMemberPortal(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalRecord, setTotalRecord] = useState(0);
   const [paginationLinksHTML, setpaginationLinksHTML] = useState([]);
-  // var url = process.env.REACT_APP_LocalUrl + "/products?page=1";
-  var url = process.env.REACT_APP_VercelUrl + "/products?page=1";
+  var url =
+    process.env.REACT_APP_VercelUrl +
+    "/" +
+    $("#product-types").children("option:selected").val() +
+    "?page=1";
   var headers = {};
   useEffect(() => {
-    // url =
-    //   searchVal !== ""
-    //     ? process.env.REACT_APP_LocalUrl + "/products" + `?title=` + searchVal
-    //     : process.env.REACT_APP_LocalUrl + "/products?page=1";
     url =
       searchVal !== ""
-        ? process.env.REACT_APP_VercelUrl + "/products" + `?title=` + searchVal
-        : process.env.REACT_APP_LocalUrl + "/products?page=1";
+        ? process.env.REACT_APP_VercelUrl +
+          "/" +
+          $("#product-types").children("option:selected").val() +
+          "" +
+          `?title=` +
+          searchVal
+        : process.env.REACT_APP_VercelUrl +
+          "/" +
+          $("#product-types").children("option:selected").val() +
+          "?page=1";
     getData();
     IsLogin =
       sessionStorage.getItem("IsLogin") !== null
@@ -112,9 +119,10 @@ function VpsMemberPortal(props) {
       cell: (row) => (
         <>
           <button
-            className="btn btn-primary me-2"
+            className="btn btn-primary me-2 productEditBtn"
             id={row._id}
             title={row.title}
+            product-type={row.productType}
             is_active={
               row.Active !== undefined && row.Active !== null
                 ? row.Active.toString()
@@ -130,13 +138,24 @@ function VpsMemberPortal(props) {
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
             short_des={row.ShortDescription}
+            specification1={row.Specification1}
+            specification2={row.Specification2}
+            specification3={row.Specification3}
+            specification4={row.Specification4}
+            specification5={row.Specification5}
+            value1={row.Value1}
+            value2={row.Value2}
+            value3={row.Value3}
+            value4={row.Value4}
+            value5={row.Value5}
             onClick={editProduct}
           >
             Edit
           </button>
           <button
-            className="btn btn-primary me-2"
+            className="btn btn-primary me-2 validateProduct"
             id={row._id}
+            product-type={row.productType}
             onClick={
               row.Active !== undefined && row.Active !== null
                 ? row.Active.toString() === "true"
@@ -188,6 +207,16 @@ function VpsMemberPortal(props) {
       .find(".saveBtn")
       .text("update")
       .attr("product_id", event.target.id);
+      $("#exampleModal #specification1").val($('.productEditBtn').attr('specification1'));
+      $("#exampleModal #specification2").val($('.productEditBtn').attr('specification2'));
+      $("#exampleModal #specification3").val($('.productEditBtn').attr('specification3'));
+      $("#exampleModal #specification4").val($('.productEditBtn').attr('specification4'));
+      $("#exampleModal #specification5").val($('.productEditBtn').attr('specification5'));
+      $("#exampleModal #value1").val($('.productEditBtn').attr('value1'));
+      $("#exampleModal #value2").val($('.productEditBtn').attr('value2'));
+      $("#exampleModal #value3").val($('.productEditBtn').attr('value3'));
+      $("#exampleModal #value4").val($('.productEditBtn').attr('value4'));
+      $("#exampleModal #value5").val($('.productEditBtn').attr('value5'));
   };
   const deactivateProduct = async (event) => {
     Swal.fire({
@@ -200,16 +229,19 @@ function VpsMemberPortal(props) {
       confirmButtonText: "Yes, deactivate it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await fetch(process.env.REACT_APP_VercelUrl + "/products/deactivateproducts", {
-          method: "POST",
-          body: JSON.stringify({
-            id: event.target.id,
-          }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }).then((res) => {
+        await fetch(
+          process.env.REACT_APP_VercelUrl + "/"+$('.validateProduct').attr('product-type')+"/deactivateproducts",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              id: event.target.id,
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((res) => {
           if (res.status > 199 && res.status < 300) {
             Swal.fire(
               "Deactivated!",
@@ -223,16 +255,19 @@ function VpsMemberPortal(props) {
     });
   };
   const activateProduct = async (event) => {
-    await fetch(process.env.REACT_APP_VercelUrl + "/products/activateproducts", {
-      method: "POST",
-      body: JSON.stringify({
-        id: event.target.id,
-      }),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
+    await fetch(
+      process.env.REACT_APP_VercelUrl + "/"+$('.validateProduct').attr('product-type')+"/activateproducts",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          id: event.target.id,
+        }),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((res) => {
       if (res.status > 199 && res.status < 300) {
         Swal.fire("Activated!", "Your file has been activated.", "success");
         getData();
@@ -247,10 +282,23 @@ function VpsMemberPortal(props) {
     //   $('#flexSwitchCheckChecked').prop('checked',true)
     // }
   };
+  const getProductsData = () => {
+    setRecords([]);
+    url =
+      searchVal !== ""
+        ? process.env.REACT_APP_VercelUrl +
+          "/" +
+          $("#product-types").children("option:selected").val() +
+          "?title=" +
+          searchVal
+        : process.env.REACT_APP_VercelUrl +
+          "/" +
+          $("#product-types").children("option:selected").val() +
+          "?page=1";
+    getData();
+  };
   const getData = async () => {
-    // url = process.env.REACT_APP_VercelUrl + "/products/saveproducts";
-    //url = process.env.REACT_APP_LocalUrl+ "/products?page="+currentPage;
-    const res = await fetch(url, {
+    const res = $('#product-types').children("option:selected").val() !== "" ? await fetch(url, {
       method: "GET",
       headers: headers,
     })
@@ -262,38 +310,46 @@ function VpsMemberPortal(props) {
       .then((data) => {
         setRecords(data.myData);
         setTotalRecord(data.nbHits);
-        renderPaginationLinks()
+        renderPaginationLinks();
       })
-      .catch(function (error) {
-      });
+      .catch(function (error) {}) : "";
   };
   const renderPaginationLinks = () => {
     if (totalRecord > 0) {
       const paginationLinks = [];
       for (let index = 0; index < Math.ceil(totalRecord / 10); index++) {
-        
-        if(index === 0){
-        paginationLinks.push(
-          <li className="page-item" key={index}>
-            <button className="page-link numBtn firstButton active" pagenum={index + 1} onClick={getPageData} >
-              {index + 1}
-            </button>
-          </li>
-        );
-        }
-        else if(index === (Math.ceil(totalRecord / 10) - 1)){
+        if (index === 0) {
           paginationLinks.push(
             <li className="page-item" key={index}>
-              <button className="page-link numBtn lastButton" pagenum={index + 1} onClick={getPageData} >
+              <button
+                className="page-link numBtn firstButton active"
+                pagenum={index + 1}
+                onClick={getPageData}
+              >
                 {index + 1}
               </button>
             </li>
           );
-        }
-        else{
+        } else if (index === Math.ceil(totalRecord / 10) - 1) {
+          paginationLinks.push(
+            <li className="page-item" key={index}>
+              <button
+                className="page-link numBtn lastButton"
+                pagenum={index + 1}
+                onClick={getPageData}
+              >
+                {index + 1}
+              </button>
+            </li>
+          );
+        } else {
           paginationLinks.push(
             <li className="page-item numItems" key={index}>
-              <button className="page-link numBtn" pagenum={index + 1} onClick={getPageData} >
+              <button
+                className="page-link numBtn"
+                pagenum={index + 1}
+                onClick={getPageData}
+              >
                 {index + 1}
               </button>
             </li>
@@ -303,48 +359,73 @@ function VpsMemberPortal(props) {
       setpaginationLinksHTML(paginationLinks);
     }
   };
-  const getPageData = (event) =>{
+  const getPageData = (event) => {
     event.stopPropagation();
-    $('.numBtn').removeClass('active')
-    $(event.target).addClass('active')
-    setCurrentPage(parseInt($(event.target).attr('pagenum')))
-    url=process.env.REACT_APP_VercelUrl + "/products?page="+$(event.target).attr('pagenum');
+    $(".numBtn").removeClass("active");
+    $(event.target).addClass("active");
+    setCurrentPage(parseInt($(event.target).attr("pagenum")));
+    url =
+      process.env.REACT_APP_VercelUrl +
+      "/" +
+      $("#product-types").children("option:selected").val() +
+      "?page=" +
+      $(event.target).attr("pagenum");
     getData();
-    if($(event.target).hasClass('firstButton')){
-      $('.previousBtn').addClass('disabled')
-      $('.nextBtn').removeClass('disabled')
+    if ($(event.target).hasClass("firstButton")) {
+      $(".previousBtn").addClass("disabled");
+      $(".nextBtn").removeClass("disabled");
+    } else if ($(event.target).hasClass("lastButton")) {
+      $(".previousBtn").removeClass("disabled");
+      $(".nextBtn").addClass("disabled");
+    } else {
+      $(".previousBtn").removeClass("disabled");
+      $(".nextBtn").removeClass("disabled");
     }
-    else if($(event.target).hasClass('lastButton')){
-      $('.previousBtn').removeClass('disabled')
-      $('.nextBtn').addClass('disabled')
-    }
-    else{
-      $('.previousBtn').removeClass('disabled')
-      $('.nextBtn').removeClass('disabled')
-    }
-  }
-  const goToprevious =()=>{
-    var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
-    $('.page-item .numBtn').removeClass('active')
-    $('.page-item .numBtn[pagenum='+(currentPage - 1)+']').addClass('active')
-    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage-1);
+  };
+  const goToprevious = () => {
+    var currentPage = parseInt($(".page-item .numBtn.active").attr("pagenum"));
+    $(".page-item .numBtn").removeClass("active");
+    $(".page-item .numBtn[pagenum=" + (currentPage - 1) + "]").addClass(
+      "active"
+    );
+    url =
+      process.env.REACT_APP_VercelUrl +
+      "/" +
+      $("#product-types").children("option:selected").val() +
+      "?page=" +
+      (currentPage - 1);
     getData();
-    if($('.page-item .numBtn[pagenum='+(currentPage - 1)+']').hasClass('firstButton')){
-      $('.previousBtn').addClass('disabled')
+    if (
+      $(".page-item .numBtn[pagenum=" + (currentPage - 1) + "]").hasClass(
+        "firstButton"
+      )
+    ) {
+      $(".previousBtn").addClass("disabled");
     }
-    $('.nextBtn').removeClass('disabled')
-  }
-  const goToNext = ()=>{
-    var currentPage = parseInt($('.page-item .numBtn.active').attr('pagenum'))
-    $('.page-item .numBtn').removeClass('active')
-    $('.page-item .numBtn[pagenum='+(currentPage + 1)+']').addClass('active')
-    url=process.env.REACT_APP_VercelUrl + "/products?page="+(currentPage+1);
+    $(".nextBtn").removeClass("disabled");
+  };
+  const goToNext = () => {
+    var currentPage = parseInt($(".page-item .numBtn.active").attr("pagenum"));
+    $(".page-item .numBtn").removeClass("active");
+    $(".page-item .numBtn[pagenum=" + (currentPage + 1) + "]").addClass(
+      "active"
+    );
+    url =
+      process.env.REACT_APP_VercelUrl +
+      "/" +
+      $("#product-types").children("option:selected").val() +
+      "?page=" +
+      (currentPage + 1);
     getData();
-    if($('.page-item .numBtn[pagenum='+(currentPage + 1)+']').hasClass('lastButton')){
-      $('.nextBtn').addClass('disabled')
+    if (
+      $(".page-item .numBtn[pagenum=" + (currentPage + 1) + "]").hasClass(
+        "lastButton"
+      )
+    ) {
+      $(".nextBtn").addClass("disabled");
     }
-    $('.previousBtn').removeClass('disabled')
-  }
+    $(".previousBtn").removeClass("disabled");
+  };
   // const { Buffer } = require('buffer');
   // const Binary  = require('binary');
   function handleFileInputChange(event) {
@@ -361,24 +442,26 @@ function VpsMemberPortal(props) {
       reader.onload = () => {
         setImage(reader.result);
         // Base64 encoded string
-const base64String = reader.result;
+        const base64String = reader.result;
 
-// Extract the content type and Base64 data from the string
-const contentType = base64String.slice(base64String.indexOf(':') + 1, base64String.indexOf(';'));
-const base64Data = base64String.slice(base64String.indexOf(',') + 1);
-// Decode the Base64 data
-const binaryData = window.atob(base64Data);
-// Create a Uint8Array from the binary data
-const uint8Array = new Uint8Array(binaryData.length);
-// Create a Blob object from the Uint8Array and content type
-const blob = new Blob([uint8Array], { type: contentType });
-for (let i = 0; i < binaryData.length; i++) {
-  uint8Array[i] = binaryData.charCodeAt(i);
-}
+        // Extract the content type and Base64 data from the string
+        const contentType = base64String.slice(
+          base64String.indexOf(":") + 1,
+          base64String.indexOf(";")
+        );
+        const base64Data = base64String.slice(base64String.indexOf(",") + 1);
+        // Decode the Base64 data
+        const binaryData = window.atob(base64Data);
+        // Create a Uint8Array from the binary data
+        const uint8Array = new Uint8Array(binaryData.length);
+        // Create a Blob object from the Uint8Array and content type
+        const blob = new Blob([uint8Array], { type: contentType });
+        for (let i = 0; i < binaryData.length; i++) {
+          uint8Array[i] = binaryData.charCodeAt(i);
+        }
         setImageBob(uint8Array);
       };
-      reader.onerror = (error) => {
-      };
+      reader.onerror = (error) => {};
     }
   }
   function handleModalClose() {
@@ -417,8 +500,11 @@ for (let i = 0; i < binaryData.length; i++) {
     let url = "";
     if (valid) {
       if ($(event.target).attr("product_id") !== undefined) {
-        url = process.env.REACT_APP_VercelUrl + "/products/updateproducts";
-        // url = process.env.REACT_APP_LocalUrl+ "/products/updateproducts";
+        url =
+          process.env.REACT_APP_VercelUrl +
+          "/" +
+          $("#product-type").children("option:selected").val() +
+          "/updateproducts";
         product = {
           id: $(event.target).attr("product_id"),
           title: $("#product-title").val(),
@@ -426,12 +512,25 @@ for (let i = 0; i < binaryData.length; i++) {
           // imageBlob:imageBlob,
           ShortDescription: $("#short-desc").val(),
           LongDescription: $("#product-desc").val(),
+          Specification1: $("#specification1").val(),
+          Value1: $("#value1").val(),
+          Specification2: $("#specification2").val(),
+          Value2: $("#value2").val(),
+          Specification3: $("#specification3").val(),
+          Value3: $("#value3").val(),
+          Specification4: $("#specification4").val(),
+          Value4: $("#value4").val(),
+          Specification5: $("#specification5").val(),
+          Value5: $("#value5").val(),
           IsShow: $("#isShow").is(":checked"),
           Active: $("#isActive").is(":checked"),
         };
       } else {
-        // url = process.env.REACT_APP_VercelUrl + "/products/saveproducts";
-        url = process.env.REACT_APP_LocalUrl+ "/products/saveproducts";
+        url =
+          process.env.REACT_APP_LocalUrl +
+          "/" +
+          $("#product-type").children("option:selected").val() +
+          "/saveproducts";
         product = {
           title: $("#product-title").val(),
           image: image,
@@ -498,13 +597,31 @@ for (let i = 0; i < binaryData.length; i++) {
             Add Product
           </button>
         </div>
+        <div className="d-grid gap-2 m-3 d-md-flex justify-content-md-end">
+          <select
+            className="form-select"
+            id="product-types"
+            onChange={getProductsData}
+          >
+            <option value="">Select</option>
+            <option value="bosch">Bosch</option>
+            <option value="forte">Forte</option>
+            <option value="sandhu">Sanshu</option>
+            <option value="products">Great Yuva</option>
+            <option value="dura">Dura Shine</option>
+            <option value="heapro">Heapro</option>
+            <option value="ralli">Ralli Wolf</option>
+            <option value="star">Star Blaze</option>
+            <option value="warpp">Warpp</option>
+          </select>
+        </div>
         <div id="dataTable">
           <DataTable
             title="Product List"
             columns={columns}
             data={records}
             theme="dark"
-			      pagination={false}
+            pagination={false}
             fixedHeader
             fixedHeaderScrollHeight="450px"
             // selectableRows
@@ -532,21 +649,28 @@ for (let i = 0; i < binaryData.length; i++) {
               />
             }
           />
-          <nav aria-label="Page navigation example" className="justify-content-center">
-      <ul className="pagination justify-content-center">
-        <li className="page-item ">
-          <button className="page-link previousBtn disabled" onClick={goToprevious} tabIndex="-1">
-            Previous
-          </button>
-        </li>
-        {paginationLinksHTML}
-        <li className="page-item">
-          <button className="page-link nextBtn" onClick={goToNext} >
-            Next
-          </button>
-        </li>
-      </ul>
-    </nav>
+          <nav
+            aria-label="Page navigation example"
+            className="justify-content-center"
+          >
+            <ul className="pagination justify-content-center">
+              <li className="page-item ">
+                <button
+                  className="page-link previousBtn disabled"
+                  onClick={goToprevious}
+                  tabIndex="-1"
+                >
+                  Previous
+                </button>
+              </li>
+              {paginationLinksHTML}
+              <li className="page-item">
+                <button className="page-link nextBtn" onClick={goToNext}>
+                  Next
+                </button>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div
           className="modal fade"
@@ -573,17 +697,33 @@ for (let i = 0; i < binaryData.length; i++) {
               <div className="modal-body">
                 <form>
                   <div className="mb-3">
+                    <label htmlFor="product-type" className="col-form-label">
+                      Product Type:
+                    </label>
+                    <select id="product-type" className="form-control">
+                      <option value="">Select</option>
+                      <option value="bosch">Bosch</option>
+                      <option value="forte">Forte</option>
+                      <option value="sandhu">Sanshu</option>
+                      <option value="products">Great Yuva</option>
+                      <option value="dura">Dura Shine</option>
+                      <option value="heapro">Heapro</option>
+                      <option value="ralli">Ralli Wolf</option>
+                      <option value="star">Star Blaze</option>
+                      <option value="warpp">Warpp</option>
+                    </select>
+                  </div>
+                  <div className="mb-3">
                     <label htmlFor="product-title" className="col-form-label">
-                      Product Title:
+                      Product Image:
                     </label>
                     <input
                       accept="image/"
                       type="file"
                       onChange={handleFileInputChange}
                     />
-                    <button type="submit">Upload</button>
                   </div>
-                  <Modal show={showModal} onHide={handleModalClose} >
+                  <Modal show={showModal} onHide={handleModalClose}>
                     <Modal.Header closeButton>
                       <Modal.Title>Image Preview</Modal.Title>
                     </Modal.Header>
@@ -633,11 +773,7 @@ for (let i = 0; i < binaryData.length; i++) {
                     <label htmlFor="value1" className="col-form-label">
                       Value1:
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="value1"
-                    />
+                    <input type="text" className="form-control" id="value1" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="specification2" className="col-form-label">
@@ -653,11 +789,7 @@ for (let i = 0; i < binaryData.length; i++) {
                     <label htmlFor="value2" className="col-form-label">
                       Value2:
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="value2"
-                    />
+                    <input type="text" className="form-control" id="value2" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="specification3" className="col-form-label">
@@ -673,11 +805,7 @@ for (let i = 0; i < binaryData.length; i++) {
                     <label htmlFor="value3" className="col-form-label">
                       Value3:
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="value3"
-                    />
+                    <input type="text" className="form-control" id="value3" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="specification4" className="col-form-label">
@@ -693,11 +821,7 @@ for (let i = 0; i < binaryData.length; i++) {
                     <label htmlFor="value4" className="col-form-label">
                       Value4:
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="value4"
-                    />
+                    <input type="text" className="form-control" id="value4" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="specification5" className="col-form-label">
@@ -713,11 +837,7 @@ for (let i = 0; i < binaryData.length; i++) {
                     <label htmlFor="value5" className="col-form-label">
                       Value5:
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="value5"
-                    />
+                    <input type="text" className="form-control" id="value5" />
                   </div>
                   <div className="mb-3">
                     <input

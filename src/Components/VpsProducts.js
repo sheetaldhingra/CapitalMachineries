@@ -43,6 +43,12 @@ export default function VpsProducts(props) {
 
   const renderPaginationLinks = () => {
     if (totalRecord > 0) {
+      if(totalRecord > 10){
+        $('.nextBtn').removeClass('disabled')
+      }
+      else{
+        $('.nextBtn').addClass('disabled')
+      }
       const paginationLinks = [];
       for (let index = 0; index < Math.ceil(totalRecord / 10); index++) {
         
@@ -124,31 +130,31 @@ export default function VpsProducts(props) {
       {slideData.map((item, index) => {
         return (
           <>
-          <div className="container d-flex justify-content-center my-5 moldLoader">
-        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+          <div className="container d-flex justify-content-center my-5 moldLoader" key="loadingparent">
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status" key="loading1">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status" key="loading2">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status" key="loading3">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status" key="loading4">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status" key="loading5">
           <span className="visually-hidden">Loading...</span>
         </div>
-        <div className="spinner-grow spinner-grow-sm mx-1" role="status">
+        <div className="spinner-grow spinner-grow-sm mx-1" role="status" key="loading6">
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
 
-      <div className="container">
-      <div className="row">
+      <div className="container" key={item._id + "1"}>
+      <div className="row" key={item._id + "2"}>
         {(index+1) % 2 === 1 ? <>
-        <div className="col-lg-6 mb-3">
+        <div className="col-lg-6 mb-3" key={item._id + "3"}>
           {/* Product Image */}
           <img
             src={item.image}
@@ -156,7 +162,7 @@ export default function VpsProducts(props) {
             className="img-fluid"
           />
         </div>
-        <div className="col-lg-6 mb-3">
+        <div className="col-lg-6 mb-3" key={item._id + "4"}>
           {/* Product Description */}
           <h2>{item.title}</h2>
           <p>
@@ -193,7 +199,7 @@ export default function VpsProducts(props) {
           
         </div>
          </> : <>
-         <div className="col-lg-6 mb-3">
+         <div className="col-lg-6 mb-3" key={item._id + "5"}>
           {/* Product Description */}
           <h2>{item.title}</h2>
           <p>
@@ -228,7 +234,7 @@ export default function VpsProducts(props) {
             </tbody>
           </table></> : ""}
         </div>
-        <div className="col-lg-6 mb-3">
+        <div className="col-lg-6 mb-3" key={item._id + "6"}>
           {/* Product Image */}
           <img
             src={item.image}
