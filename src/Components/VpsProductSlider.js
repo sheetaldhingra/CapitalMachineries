@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ReactCardSlider from "react-card-slider-component";
 import $ from "jquery";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
