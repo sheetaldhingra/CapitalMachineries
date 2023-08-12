@@ -359,6 +359,8 @@ export default function VpsProductSlider() {
               description: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
+            slides = slides.filter((arr, index, self) =>
+    index === self.findIndex((t) => (t.title === arr.title)))
             setSlideData(slides);
           }
         });
@@ -400,7 +402,7 @@ export default function VpsProductSlider() {
         className="d-flex align-items-center justify-content-center mb-4"
         id="moldRange"
       >
-        Molds manufactured for parts...
+        We Deal In...
       </h1>
       <div className="container d-flex justify-content-center my-5 moldLoader">
         <div className="spinner-grow spinner-grow-sm mx-1" role="status">
@@ -453,9 +455,10 @@ export default function VpsProductSlider() {
         </div>
       </div>
     </div>
-      <div className="container d-flex justify-content-center my-5">
+      {/* <div className="container d-flex justify-content-center my-5"> */}
+      <div className="container d-none justify-content-center my-5">
         <Link className="btn btn-primary text-light" to="/products">
-          READ MORE ABOUT MOLDS
+          READ MORE ABOUT MACHINES
         </Link>
       </div>
     </>

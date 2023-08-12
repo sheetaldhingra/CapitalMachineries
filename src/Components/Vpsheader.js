@@ -19,7 +19,7 @@ export default function Vpsheader() {
   };
   useEffect(() => {
     $("#navbarTogglerDemo02").find(".nav-link").removeClass("active");
-    if (window.location.pathname === "/products") {
+    if (window.location.pathname.includes("/products")) {
       $(".products").addClass("active");
     } else if (window.location.pathname === "/contact") {
       $(".contact").addClass("active");
@@ -137,7 +137,7 @@ export default function Vpsheader() {
                 </Link>
               </li>
               <li className="nav-item dropdown">
-          <Link className="nav-link dropdown-toggle" to="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link className="nav-link dropdown-toggle products" to="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Products
           </Link>
           <ul className="dropdown-menu productsList">
