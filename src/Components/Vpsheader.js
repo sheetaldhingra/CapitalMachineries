@@ -19,9 +19,10 @@ export default function Vpsheader() {
   };
   useEffect(() => {
     $("#navbarTogglerDemo02").find(".nav-link").removeClass("active");
-    if (window.location.pathname.includes("/products")) {
-      $(".products").addClass("active");
-    } else if (window.location.pathname === "/contact") {
+    // if (window.location.pathname.includes("/products")) {
+    //   $(".products").addClass("active");
+    // }
+     if (window.location.pathname === "/contact") {
       $(".contact").addClass("active");
     } else if (window.location.pathname === "/about") {
       $(".about").addClass("active");
@@ -29,7 +30,44 @@ export default function Vpsheader() {
       $(".facilities").addClass("active");
     } else if (window.location.pathname === "/manufacture") {
       $(".manufaturing").addClass("active");
-    } else if(window.location.pathname === "/") {
+    }
+    else if(window.location.pathname.includes("/bosch")){
+      $(".products").addClass("active");
+      $(".bosch").addClass("active");
+    }
+    else if(window.location.pathname.includes("/forte")){
+      $(".products").addClass("active");
+      $(".forte").addClass("active");
+    }
+    else if(window.location.pathname.includes("/sandhu")){
+      $(".products").addClass("active");
+      $(".sandhu").addClass("active");
+    }
+    else if(window.location.pathname.includes("/greatyuva")){
+      $(".products").addClass("active");
+      $(".greatYuva").addClass("active");
+    }
+    else if(window.location.pathname.includes("/dura-shine")){
+      $(".products").addClass("active");
+      $(".dura").addClass("active");
+    }
+    else if(window.location.pathname.includes("/heapro")){
+      $(".products").addClass("active");
+      $(".heapro").addClass("active");
+    }
+    else if(window.location.pathname.includes("/ralli")){
+      $(".products").addClass("active");
+      $(".ralli").addClass("active");
+    }
+    else if(window.location.pathname.includes("/starblaze")){
+      $(".products").addClass("active");
+      $(".starblaze").addClass("active");
+    }
+    else if(window.location.pathname.includes("/warpp")){
+      $(".products").addClass("active");
+      $(".warpp").addClass("active");
+    }
+     else if(window.location.pathname === "/") {
       $(".home").addClass("active");
     }
   });
@@ -141,15 +179,15 @@ export default function Vpsheader() {
           Products
           </Link>
           <ul className="dropdown-menu productsList">
-            <li><Link className="dropdown-item nav-link" to="/products/bosch">Bosch</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/forte">Forte</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/sandhu">Sandhu</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/greatyuva">Great Yuva</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/dura-shine">Dura Shine</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/heapro">Heapro</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/ralli">Ralli Wolf</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/starblaze">Star Blaze</Link></li>
-            <li><Link className="dropdown-item nav-link" to="/products/warpp">Warpp</Link></li>
+            <li><Link className="dropdown-item nav-link bosch" to="/products/bosch">Bosch</Link></li>
+            <li><Link className="dropdown-item nav-link forte" to="/products/forte">Forte</Link></li>
+            <li><Link className="dropdown-item nav-link sandhu" to="/products/sandhu">Sandhu</Link></li>
+            <li><Link className="dropdown-item nav-link greatYuva" to="/products/greatyuva">Great Yuva</Link></li>
+            <li><Link className="dropdown-item nav-link dura" to="/products/dura-shine">Dura Shine</Link></li>
+            <li><Link className="dropdown-item nav-link heapro" to="/products/heapro">Heapro</Link></li>
+            <li><Link className="dropdown-item nav-link ralli" to="/products/ralli">Ralli Wolf</Link></li>
+            <li><Link className="dropdown-item nav-link starblaze" to="/products/starblaze">Star Blaze</Link></li>
+            <li><Link className="dropdown-item nav-link warpp" to="/products/warpp">Warpp</Link></li>
           </ul>
         </li>
               {/* <li className="nav-item">
