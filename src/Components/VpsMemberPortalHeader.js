@@ -39,9 +39,9 @@ export default function VpsMemberPortalHeader() {
         <li className="nav-item">
           <Link className="nav-link home addProduct active" aria-current="page" onClick={showHideNavMenu} to="/memberlogin/MemberPortal">Add Products</Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link className="nav-link addMachine" onClick={showHideNavMenu} to="/memberlogin/Addmachines">Add Machines</Link>
-        </li>
+        </li> */}
         {/* <li className="nav-item">
           <Link className="nav-link products" onClick={showHideNavMenu} to="/memberlogin/MemberPortal">Products</Link>
         </li>
