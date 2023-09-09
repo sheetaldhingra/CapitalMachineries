@@ -57,33 +57,37 @@ export default function VpsBootstrapAboutus() {
                   >
                     <div className="elementor-widget-container">
                       <div className="elementor-text-editor elementor-clearfix">
-                        <p className="text-light">
-                          Established in 1997 under SSI(Small Scale Ind.), V. P.
-                          S. Engineering Corp. first specialized in analyzing
-                          and developing the precision Molds and Dies. Located
-                          in Sector-37, Pace City-2, Gurugram, we give
-                          importance to safety, convenient work and serene
-                          surroundings.
+                      <p className="text-light">
+                          With a rich history dating back to 1997, we embarked
+                          on our journey as a river, initially offering a
+                          singular product line of welding machines. Fast
+                          forward {new Date().getFullYear() - 1998}+ years, and we have evolved into a
+                          formidable force in the industry. Our unwavering
+                          commitment to excellence has paved the way for us to
+                          collaborate with renowned brands, including Great
+                          Yuva, Ralli Wolf, Stanvac Prime Limited, and more.
                         </p>
                         <p className="text-light">
-                          V. P. S. Engineering Corp. has completed its{" "}
-                          {new Date().getFullYear() - 1997} years of successful
-                          services since its inception and feels proud to deal
-                          with many big companies in all over India. With
-                          competent engineers of varied skills, precised CNC
-                          milling, Drilling, Grinding, Lathe machining, EDM and
-                          Injection molding we have pursued excellence and
-                          within a brief period of time we are able to cope up
-                          with the needs and specifications of our customers.
+                          Our tagline, "A Trusted Name in Welding Machines,"
+                          stands as a testament to the unparalleled quality that
+                          defines our brand. It is a reflection of the robust
+                          work ethic and innovative spirit that have been the
+                          cornerstones of our success. Our diverse and versatile
+                          product range has been instrumental in forging
+                          partnerships with esteemed names such as Hero
+                          MotoCorp, Suzuki Motorcycles, Suzuki Powertrain, and
+                          AG Industries.
                         </p>
-                        {/* <p className="text-light">
-                          We are highly specialised in manufacturing best
-                          quality SWR Seals, Rubber and Plastic O Rings at a
-                          reasonable cost. Also the need of households and
-                          industrial products is being fulfilled in our plant
-                          since a long time. The constant search of new ideas
-                          enables us to deal with all desires of our customers.
-                        </p> */}
+                        <p className="text-light">
+                          At our core, we are dedicated to delivering not just
+                          products but solutions, ensuring that our customers
+                          receive nothing short of excellence. With a track
+                          record spanning over two decades, we invite you to
+                          join us on this remarkable journey, where quality,
+                          reliability, and innovation converge to create a
+                          brighter future for welding solutions. Welcome to a
+                          world where welding excellence knows no bounds.
+                        </p>
                       </div>
                     </div>
                   </div>
