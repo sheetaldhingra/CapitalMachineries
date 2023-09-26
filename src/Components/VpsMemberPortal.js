@@ -84,7 +84,7 @@ function VpsMemberPortal(props) {
     },
     {
       name: "Image",
-      selector: (row) => <img width={100} height={100} src={row.image} />,
+      selector: (row) => <img width={100} height={100} src={row.LongDescription.split(",")[0]} />,
       sortable: true,
     },
     {
@@ -94,7 +94,7 @@ function VpsMemberPortal(props) {
     },
     {
       name: "Long Description",
-      selector: (row) => row.LongDescription,
+      selector: (row) => row.Specification1,
       sortable: true,
     },
     {
@@ -505,19 +505,19 @@ function VpsMemberPortal(props) {
       $("#short-desc").removeClass("is-invalid");
     }
     if($('#specification1').val() !== ""){
-      valid = $('#value1').val() === "" ? ($("#value1").addClass("is-invalid"), false) : ($("#value1").removeClass("is-invalid"), true);
+      //valid = $('#value1').val() === "" ? ($("#value1").addClass("is-invalid"), false) : ($("#value1").removeClass("is-invalid"), true);
     }
     if($('#specification2').val() !== ""){
-      valid = $('#value2').val() === "" ? ($("#value2").addClass("is-invalid"), false) : ($("#value2").removeClass("is-invalid"), true);
+      //valid = $('#value2').val() === "" ? ($("#value2").addClass("is-invalid"), false) : ($("#value2").removeClass("is-invalid"), true);
     }
     if($('#specification3').val() !== ""){
-      valid = $('#value3').val() === "" ? ($("#value3").addClass("is-invalid"), false) : ($("#value3").removeClass("is-invalid"), true);
+      //valid = $('#value3').val() === "" ? ($("#value3").addClass("is-invalid"), false) : ($("#value3").removeClass("is-invalid"), true);
     }
     if($('#specification4').val() !== ""){
-      valid = $('#value4').val() === "" ? ($("#value4").addClass("is-invalid"), false) : ($("#value4").removeClass("is-invalid"), true);
+      //valid = $('#value4').val() === "" ? ($("#value4").addClass("is-invalid"), false) : ($("#value4").removeClass("is-invalid"), true);
     }
     if($('#specification5').val() !== ""){
-      valid = $('#value5').val() === "" ? ($("#value5").addClass("is-invalid"), false) : ($("#value5").removeClass("is-invalid"), true);
+      //valid = $('#value5').val() === "" ? ($("#value5").addClass("is-invalid"), false) : ($("#value5").removeClass("is-invalid"), true);
     }
     let product = {};
     let url = "";

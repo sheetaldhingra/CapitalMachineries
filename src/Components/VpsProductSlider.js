@@ -30,7 +30,8 @@ export default function VpsProductSlider() {
     slides = [];
     // const res = await fetch(process.env.REACT_APP_LocalUrl + "/products?isShow=1&page=1&limit=4", {
     const Boschres = await fetch(
-      process.env.REACT_APP_VercelUrl + "/bosch?isShow=1&page=1&limit=4&page=1&limit=4",
+      process.env.REACT_APP_VercelUrl +
+        "/bosch?isShow=1&page=1&limit=4&page=1&limit=4",
       {
         method: "GET",
         headers: headers,
@@ -51,12 +52,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -88,12 +91,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -125,12 +130,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -162,12 +169,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -199,12 +208,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -236,12 +247,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -273,12 +286,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -310,12 +325,14 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             //setSlideData(slides);
@@ -351,16 +368,20 @@ export default function VpsProductSlider() {
               image: prod.image,
               title: prod.title,
               description: prod.ShortDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
             slideClick.push({
               image: prod.image,
               title: prod.title,
               description: prod.LongDescription,
+              LongDescription: prod.LongDescription,
               clickEvent: () => sliderClick(pr),
             });
-            slides = slides.filter((arr, index, self) =>
-    index === self.findIndex((t) => (t.title === arr.title)))
+            slides = slides.filter(
+              (arr, index, self) =>
+                index === self.findIndex((t) => t.title === arr.title)
+            );
             setSlideData(slides);
           }
         });
@@ -384,18 +405,18 @@ export default function VpsProductSlider() {
     },
   };
   function sliderClick1(index) {
-    if(index != undefined && slideClick.length > 0) {
-    navigate("/singleProduct", {
-      state: {
-        name: slideClick[index].title,
-        description: slideClick[index].description,
-        image: slideClick[index].image,
-      },
-    });
-    $("#navbarTogglerDemo02").find(".nav-link").removeClass("active");
-    $("#navbarTogglerDemo02").find(".products").addClass("active");
+    if (index != undefined && slideClick.length > 0) {
+      navigate("/singleProduct", {
+        state: {
+          name: slideClick[index].title,
+          description: slideClick[index].description,
+          image: slideClick[index].image,
+        },
+      });
+      $("#navbarTogglerDemo02").find(".nav-link").removeClass("active");
+      $("#navbarTogglerDemo02").find(".products").addClass("active");
+    }
   }
-  };
   return (
     <>
       <h1
@@ -425,36 +446,45 @@ export default function VpsProductSlider() {
         </div>
       </div>
       <div className="container">
-      <div className="row">
-        <div className="col">
-          <Splide
-            options={{
-              rewind: true,
-              perPage: 4,
-              perMove: 1,
-              focus: 0,
-              omitEnd: true,
-              wheel: false,
-              pagination: false,
-              breakpoints: breakpoints,
-            }}
-            aria-label="React Splide Example"
-          >
-            {slideData.map((slide, index) => (
-              <SplideSlide key={index} className="splide__slide" slide_id={index} onClick={sliderClick1(index)}>
-                <div onClick={sliderClick1(index)}>
-                  <img src={slide.image} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} />
-                  <div className="slide-content">
-                    <h3>{slide.title}</h3>
-                    <p>{slide.description}</p>
+        <div className="row">
+          <div className="col">
+            <Splide
+              options={{
+                rewind: true,
+                perPage: 4,
+                perMove: 1,
+                focus: 0,
+                omitEnd: true,
+                wheel: false,
+                pagination: false,
+                breakpoints: breakpoints,
+              }}
+              aria-label="React Splide Example"
+            >
+              {slideData.map((slide, index) => (
+                <SplideSlide
+                  key={index}
+                  className="splide__slide"
+                  slide_id={index}
+                  onClick={sliderClick1(index)}
+                >
+                  <div onClick={sliderClick1(index)}>
+                    <img
+                      src={slide.LongDescription.split(",")[0]}
+                      alt={`Slide ${index}`}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                    <div className="slide-content">
+                      <h3>{slide.title}</h3>
+                      <p>{slide.description}</p>
+                    </div>
                   </div>
-                </div>
-              </SplideSlide>
-            ))}
-          </Splide>
+                </SplideSlide>
+              ))}
+            </Splide>
+          </div>
         </div>
       </div>
-    </div>
       {/* <div className="container d-flex justify-content-center my-5"> */}
       <div className="container d-none justify-content-center my-5">
         <Link className="btn btn-primary text-light" to="/products">

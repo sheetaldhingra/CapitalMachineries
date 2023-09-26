@@ -32,14 +32,13 @@ export default function VpsProducts(props) {
         setTotalRecord(data.nbHits);
         setMaxPageNum(Math.ceil(totalRecord / 10));
         renderPaginationLinks();
-        if(data.myData.length > 0){
-          $('.noResult').addClass('d-none');
+        if (data.myData.length > 0) {
+          $(".noResult").addClass("d-none");
           $(".moldLoader").removeClass("d-flex").addClass("d-none");
           $(".moldContent").addClass("d-flex").removeClass("d-none");
-        }
-        else{
-          $('.noResult').removeClass('d-none')
-          $(".moldLoader").removeClass("d-flex").addClass("d-none")
+        } else {
+          $(".noResult").removeClass("d-none");
+          $(".moldLoader").removeClass("d-flex").addClass("d-none");
         }
       })
       .catch(function (error) {
@@ -47,7 +46,7 @@ export default function VpsProducts(props) {
       });
   };
   useEffect(() => {
-    $(".moldLoader").addClass("d-flex")
+    $(".moldLoader").addClass("d-flex");
     getProductsData();
   }, [totalRecord]);
 
@@ -174,16 +173,14 @@ export default function VpsProducts(props) {
         slideData.map((item, index) => {
           return (
             <>
-              
-
               <div className="container" key={item._id + "1"}>
                 <div className="row" key={item._id + "2"}>
                   {(index + 1) % 2 === 1 ? (
                     <>
-                      <div className="col-lg-6 mb-3" key={item._id + "3"}>
+                      <div className="col-lg-6 mb-3 d-flex align-items-center justify-content-center" key={item._id + "3"}>
                         {/* Product Image */}
                         <img
-                          src={item.image}
+                          src={item.LongDescription.split(",")[0]}
                           alt={item.title}
                           className="img-fluid"
                         />
@@ -191,65 +188,80 @@ export default function VpsProducts(props) {
                       <div className="col-lg-6 mb-3" key={item._id + "4"}>
                         {/* Product Description */}
                         <h2>{item.title}</h2>
-                        <p>{item.LongDescription}</p>
+                        <hr />
+                        <ul class="list-group list-group-flush">
+                          {item.Specification1 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification1}
+                              </li>
+                            </>
+                          )}
+                          {item.Value1 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value1}</li>
+                            </>
+                          )}
+                          {item.Specification2 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification2}
+                              </li>
+                            </>
+                          )}
+                          {item.Value2 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value2}</li>
+                            </>
+                          )}
+                          {item.Specification3 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification3}
+                              </li>
+                            </>
+                          )}
+                          {item.Value3 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value3}</li>
+                            </>
+                          )}
+                          {item.Specification4 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification4}
+                              </li>
+                            </>
+                          )}
+                          {item.Value4 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value4}</li>
+                            </>
+                          )}
+                          {item.Specification5 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification5}
+                              </li>
+                            </>
+                          )}
+                          {item.Value5 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value5}</li>
+                            </>
+                          )}
+                        </ul>
 
                         {/* Product Specifications */}
-                        {item.Specification1 !== "" &&
-                        item.Specification1 !== undefined &&
-                        item.Value1 !== "" &&
-                        item.Value1 !== undefined ? (
+                        {item.LongDescription.split(",")[1] !== "" &&
+                        item.LongDescription.split(",")[1] !== undefined ? (
                           <>
                             <h3>Specifications:</h3>
-                            <table className="table">
-                              <tbody>
-                                {item.Specification1 !== "" &&
-                                item.Value1 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification1}</td>
-                                    <td>{item.Value1}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification2 !== "" &&
-                                item.Value2 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification2}</td>
-                                    <td>{item.Value2}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification3 !== "" &&
-                                item.Value3 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification3}</td>
-                                    <td>{item.Value3}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification4 !== "" &&
-                                item.Value4 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification4}</td>
-                                    <td>{item.Value4}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification5 !== "" &&
-                                item.Value5 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification5}</td>
-                                    <td>{item.Value5}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {/* Add more rows for additional specifications */}
-                              </tbody>
-                            </table>
+                            <img
+                              src={item.LongDescription.split(",")[1]}
+                              alt={item.title}
+                              className="img-fluid"
+                            />
                           </>
                         ) : (
                           ""
@@ -258,77 +270,92 @@ export default function VpsProducts(props) {
                     </>
                   ) : (
                     <>
-                      <div className="col-lg-6 mb-3" key={item._id + "5"}>
+                      <div className="col-lg-6 mb-3" key={item._id + "4"}>
                         {/* Product Description */}
                         <h2>{item.title}</h2>
-                        <p>{item.LongDescription}</p>
+                        <hr />
+                        <ul class="list-group list-group-flush">
+                          {item.Specification1 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification1}
+                              </li>
+                            </>
+                          )}
+                          {item.Value1 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value1}</li>
+                            </>
+                          )}
+                          {item.Specification2 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification2}
+                              </li>
+                            </>
+                          )}
+                          {item.Value2 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value2}</li>
+                            </>
+                          )}
+                          {item.Specification3 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification3}
+                              </li>
+                            </>
+                          )}
+                          {item.Value3 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value3}</li>
+                            </>
+                          )}
+                          {item.Specification4 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification4}
+                              </li>
+                            </>
+                          )}
+                          {item.Value4 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value4}</li>
+                            </>
+                          )}
+                          {item.Specification5 !== "" && (
+                            <>
+                              <li class="list-group-item">
+                                {item.Specification5}
+                              </li>
+                            </>
+                          )}
+                          {item.Value5 !== "" && (
+                            <>
+                              <li class="list-group-item">{item.Value5}</li>
+                            </>
+                          )}
+                        </ul>
 
                         {/* Product Specifications */}
-                        {item.Specification1 !== "" &&
-                        item.Specification1 !== undefined &&
-                        item.Value1 !== "" &&
-                        item.Value1 !== undefined ? (
+                        {item.LongDescription !== "" &&
+                        item.LongDescription !== undefined ? (
                           <>
                             <h3>Specifications:</h3>
-                            <table className="table">
-                              <tbody>
-                                {item.Specification1 !== "" &&
-                                item.Value1 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification1}</td>
-                                    <td>{item.Value1}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification2 !== "" &&
-                                item.Value2 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification2}</td>
-                                    <td>{item.Value2}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification3 !== "" &&
-                                item.Value3 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification3}</td>
-                                    <td>{item.Value3}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification4 !== "" &&
-                                item.Value4 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification4}</td>
-                                    <td>{item.Value4}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {item.Specification5 !== "" &&
-                                item.Value5 !== "" ? (
-                                  <tr>
-                                    <td>{item.Specification5}</td>
-                                    <td>{item.Value5}</td>
-                                  </tr>
-                                ) : (
-                                  ""
-                                )}
-                                {/* Add more rows for additional specifications */}
-                              </tbody>
-                            </table>
+                            <img
+                              src={item.LongDescription.split(",")[1]}
+                              alt={item.title}
+                              className="img-fluid"
+                            />
                           </>
                         ) : (
                           ""
                         )}
                       </div>
-                      <div className="col-lg-6 mb-3" key={item._id + "6"}>
+                      <div className="col-lg-6 mb-3 d-flex align-items-center justify-content-center" key={item._id + "5"}>
                         {/* Product Image */}
                         <img
-                          src={item.image}
+                          src={item.LongDescription.split(",")[0]}
                           alt={item.title}
                           className="img-fluid"
                         />
