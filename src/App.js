@@ -32,14 +32,22 @@ function App() {
     <Route exact path="/memberlogin/MemberPortal" element={<VpsMemberPortal/>} />
     <Route exact path="/products" element={<ProductDetail/>} />
     <Route exact path="/products/greatyuva" element={<GreatYuvaProducts/>} />
-    <Route exact path="/products/bosch" element={<BoschProducts/>} />
-    <Route exact path="/products/forte" element={<ForteProducts/>} />
-    <Route exact path="/products/sandhu" element={<SandhuProducts/>} />
-    <Route exact path="/products/dura-shine" element={<DuraProducts/>} />
-    <Route exact path="/products/heapro" element={<HeaproProducts/>} />
-    <Route exact path="/products/ralli" element={<RalliProducts/>} />
-    <Route exact path="/products/starblaze" element={<StarProducts/>} />
-    <Route exact path="/products/warpp" element={<WarppProducts/>} />
+    {/* <Route exact path="/products/bosch" element={<BoschProducts/>} /> */}
+    <Route exact path="/products/bosch" element={<Comingsoon />} />
+    {/* <Route exact path="/products/forte" element={<ForteProducts/>} /> */}
+    <Route exact path="/products/forte" element={<Comingsoon />} />
+    {/* <Route exact path="/products/sandhu" element={<SandhuProducts/>} /> */}
+    <Route exact path="/products/sandhu" element={<Comingsoon />} />
+    {/* <Route exact path="/products/dura-shine" element={<DuraProducts/>} /> */}
+    <Route exact path="/products/dura-shine" element={<Comingsoon />} />
+    {/* <Route exact path="/products/heapro" element={<HeaproProducts/>} /> */}
+    <Route exact path="/products/heapro" element={<Comingsoon />} />
+    {/* <Route exact path="/products/ralli" element={<RalliProducts/>} /> */}
+    <Route exact path="/products/ralli" element={<Comingsoon />} />
+    {/* <Route exact path="/products/starblaze" element={<StarProducts/>} /> */}
+    <Route exact path="/products/starblaze" element={<Comingsoon />} />
+    {/* <Route exact path="/products/warpp" element={<WarppProducts/>} /> */}
+    <Route exact path="/products/warpp" element={<Comingsoon />} />
     <Route exact path="/about" element={<VpsBootstrapAboutus/>} />
     <Route exact path="/facilities" element={<Comingsoon/>} />
     <Route exact path="/manufacture" element={<Comingsoon />} />
