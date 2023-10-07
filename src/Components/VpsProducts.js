@@ -180,7 +180,7 @@ export default function VpsProducts(props) {
                       <div className="col-lg-6 mb-3 d-flex align-items-center justify-content-center" key={item._id + "3"}>
                         {/* Product Image */}
                         <img
-                          src={item.LongDescription.split(",")[0]}
+                          src={item.image !== "" ? item.image : item.LongDescription.split(",")[0]}
                           alt={item.title}
                           className="img-fluid"
                         />
@@ -253,7 +253,7 @@ export default function VpsProducts(props) {
                         </ul>
 
                         {/* Product Specifications */}
-                        {item.LongDescription.split(",")[1] !== "" &&
+                        {item.LongDescription.split(",")[1] !== "" && item.image === "" &&
                         item.LongDescription.split(",")[1] !== undefined ? (
                           <>
                             <h3>Specifications:</h3>
@@ -338,7 +338,7 @@ export default function VpsProducts(props) {
                         </ul>
 
                         {/* Product Specifications */}
-                        {item.LongDescription !== "" &&
+                        {item.LongDescription !== "" && item.image === "" &&
                         item.LongDescription !== undefined ? (
                           <>
                             <h3>Specifications:</h3>
@@ -355,7 +355,7 @@ export default function VpsProducts(props) {
                       <div className="col-lg-6 mb-3 d-flex align-items-center justify-content-center" key={item._id + "5"}>
                         {/* Product Image */}
                         <img
-                          src={item.LongDescription.split(",")[0]}
+                          src={item.image !== "" ? item.image : item.LongDescription.split(",")[0]}
                           alt={item.title}
                           className="img-fluid"
                         />

@@ -84,7 +84,7 @@ function VpsMemberPortal(props) {
     },
     {
       name: "Image",
-      selector: (row) => <img width={100} height={100} src={row.LongDescription.split(",")[0]} />,
+      selector: (row) => <img width={100} height={100} src={row.image !== "" ? row.image : row.LongDescription.split(",")[0]} />,
       sortable: true,
     },
     {
@@ -206,17 +206,17 @@ function VpsMemberPortal(props) {
       .find(".saveBtn")
       .text("update")
       .attr("product_id", event.target.id);
-      $("#exampleModal #product-type").val($('.productEditBtn').attr('product-type'));
-      $("#exampleModal #specification1").val($('.productEditBtn').attr('specification1'));
-      $("#exampleModal #specification2").val($('.productEditBtn').attr('specification2'));
-      $("#exampleModal #specification3").val($('.productEditBtn').attr('specification3'));
-      $("#exampleModal #specification4").val($('.productEditBtn').attr('specification4'));
-      $("#exampleModal #specification5").val($('.productEditBtn').attr('specification5'));
-      $("#exampleModal #value1").val($('.productEditBtn').attr('value1'));
-      $("#exampleModal #value2").val($('.productEditBtn').attr('value2'));
-      $("#exampleModal #value3").val($('.productEditBtn').attr('value3'));
-      $("#exampleModal #value4").val($('.productEditBtn').attr('value4'));
-      $("#exampleModal #value5").val($('.productEditBtn').attr('value5'));
+      $("#exampleModal #product-type").val($(event.target).attr('product-type'));
+      $("#exampleModal #specification1").val($(event.target).attr('specification1'));
+      $("#exampleModal #specification2").val($(event.target).attr('specification2'));
+      $("#exampleModal #specification3").val($(event.target).attr('specification3'));
+      $("#exampleModal #specification4").val($(event.target).attr('specification4'));
+      $("#exampleModal #specification5").val($(event.target).attr('specification5'));
+      $("#exampleModal #value1").val($(event.target).attr('value1'));
+      $("#exampleModal #value2").val($(event.target).attr('value2'));
+      $("#exampleModal #value3").val($(event.target).attr('value3'));
+      $("#exampleModal #value4").val($(event.target).attr('value4'));
+      $("#exampleModal #value5").val($(event.target).attr('value5'));
   };
   const deactivateProduct = async (event) => {
     Swal.fire({
