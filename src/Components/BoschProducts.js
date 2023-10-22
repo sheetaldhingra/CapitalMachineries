@@ -1,6 +1,7 @@
 import React from "react";
 import Vpsheader from "./Vpsheader";
 import VpsProducts from "./VpsProducts";
+import VpsProductsBootStrap from "./VpsProductsBootStrap";
 
 export default function BoschProducts() {
   return (
@@ -57,7 +58,8 @@ export default function BoschProducts() {
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
-      <VpsProducts url="bosch" />
+      {/* <VpsProducts url="bosch" /> */}
+      <VpsProductsBootStrap url="bosch" />
     </>
   );
 }

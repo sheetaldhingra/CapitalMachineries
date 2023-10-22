@@ -181,6 +181,17 @@ function VpsMemberPortal(props) {
     $("#exampleModal").find(".shortDesc").addClass("d-none");
     $("#exampleModal").find(".saveBtn").text("Save").removeAttr("product_id");
     setImage("");
+    $('#product-type').val('bosch')
+    $('#specification1').val('Part no.: ')
+    $('#value1').val('Battery voltage: ')
+    // $('#specification2').val('Spindle size: ')
+    // $('#value2').val('No-load speed (1st/2nd): ')
+    // $('#specification3').val('Disc diameter: ')
+    // $('#value3').val('Grip size front / back: ')
+    // $('#specification4').val('Weight w/o battery: ')
+    // $('#value4').val('Weight w/ 4.0 battery: ')
+    // $('#specification5').val('Weight: ')
+    // $('#value5').val('Battery voltage: ')
   };
   const editProduct = (event) => {
     $("#exampleModal").find("#product-title").val(event.target.title);

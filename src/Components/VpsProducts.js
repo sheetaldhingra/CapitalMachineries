@@ -173,8 +173,8 @@ export default function VpsProducts(props) {
         slideData.map((item, index) => {
           return (
             <>
-              <div className="container" key={item._id + "1"}>
-                <div className="row" key={item._id + "2"}>
+              <div className="container" key={item._id}>
+                <div className="row" key={item.title}>
                   {(index + 1) % 2 === 1 ? (
                     <>
                       <div className="col-lg-6 mb-3 d-flex align-items-center justify-content-center" key={item._id + "3"}>
@@ -189,65 +189,65 @@ export default function VpsProducts(props) {
                         {/* Product Description */}
                         <h2>{item.title}</h2>
                         <hr />
-                        <ul class="list-group list-group-flush">
+                        <ul className="list-group list-group-flush">
                           {item.Specification1 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification1}
                               </li>
                             </>
                           )}
                           {item.Value1 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value1}</li>
+                              <li className="list-group-item">{item.Value1}</li>
                             </>
                           )}
                           {item.Specification2 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification2}
                               </li>
                             </>
                           )}
                           {item.Value2 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value2}</li>
+                              <li className="list-group-item">{item.Value2}</li>
                             </>
                           )}
                           {item.Specification3 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification3}
                               </li>
                             </>
                           )}
                           {item.Value3 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value3}</li>
+                              <li className="list-group-item">{item.Value3}</li>
                             </>
                           )}
                           {item.Specification4 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification4}
                               </li>
                             </>
                           )}
                           {item.Value4 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value4}</li>
+                              <li className="list-group-item">{item.Value4}</li>
                             </>
                           )}
                           {item.Specification5 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification5}
                               </li>
                             </>
                           )}
                           {item.Value5 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value5}</li>
+                              <li className="list-group-item">{item.Value5}</li>
                             </>
                           )}
                         </ul>
@@ -274,65 +274,65 @@ export default function VpsProducts(props) {
                         {/* Product Description */}
                         <h2>{item.title}</h2>
                         <hr />
-                        <ul class="list-group list-group-flush">
+                        <ul className="list-group list-group-flush">
                           {item.Specification1 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification1}
                               </li>
                             </>
                           )}
                           {item.Value1 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value1}</li>
+                              <li className="list-group-item">{item.Value1}</li>
                             </>
                           )}
                           {item.Specification2 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification2}
                               </li>
                             </>
                           )}
                           {item.Value2 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value2}</li>
+                              <li className="list-group-item">{item.Value2}</li>
                             </>
                           )}
                           {item.Specification3 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification3}
                               </li>
                             </>
                           )}
                           {item.Value3 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value3}</li>
+                              <li className="list-group-item">{item.Value3}</li>
                             </>
                           )}
                           {item.Specification4 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification4}
                               </li>
                             </>
                           )}
                           {item.Value4 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value4}</li>
+                              <li className="list-group-item">{item.Value4}</li>
                             </>
                           )}
                           {item.Specification5 !== "" && (
                             <>
-                              <li class="list-group-item">
+                              <li className="list-group-item">
                                 {item.Specification5}
                               </li>
                             </>
                           )}
                           {item.Value5 !== "" && (
                             <>
-                              <li class="list-group-item">{item.Value5}</li>
+                              <li className="list-group-item">{item.Value5}</li>
                             </>
                           )}
                         </ul>
