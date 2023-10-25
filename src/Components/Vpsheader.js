@@ -179,15 +179,15 @@ export default function Vpsheader() {
           Products
           </Link>
           <ul className="dropdown-menu productsList">
-            <li><Link className="dropdown-item nav-link bosch" to="/products/bosch">Bosch</Link></li>
-            <li><Link className="dropdown-item nav-link forte" to="/products/forte">Forte</Link></li>
-            <li><Link className="dropdown-item nav-link sandhu" to="/products/sandhu">Sandhu</Link></li>
-            <li><Link className="dropdown-item nav-link greatYuva" to="/products/greatyuva">Great Yuva</Link></li>
-            <li><Link className="dropdown-item nav-link dura" to="/products/dura-shine">Dura Shine</Link></li>
-            <li><Link className="dropdown-item nav-link heapro" to="/products/heapro">Heapro</Link></li>
-            <li><Link className="dropdown-item nav-link ralli" to="/products/ralli">Ralli Wolf</Link></li>
-            <li><Link className="dropdown-item nav-link starblaze" to="/products/starblaze">Star Blaze</Link></li>
-            <li><Link className="dropdown-item nav-link warpp" to="/products/warpp">Warpp</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link bosch" to="/products/bosch">Bosch</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link forte" to="/products/forte">Forte</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link sandhu" to="/products/sandhu">Sandhu</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link greatYuva" to="/products/greatyuva">Great Yuva</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link dura" to="/products/dura-shine">Dura Shine</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link heapro" to="/products/heapro">Heapro</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link ralli" to="/products/ralli">Ralli Wolf</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link starblaze" to="/products/starblaze">Star Blaze</Link></li>
+            <li className="px-3"><Link className="dropdown-item nav-link warpp" to="/products/warpp">Warpp</Link></li>
           </ul>
         </li>
               {/* <li className="nav-item">

@@ -181,9 +181,9 @@ function VpsMemberPortal(props) {
     $("#exampleModal").find(".shortDesc").addClass("d-none");
     $("#exampleModal").find(".saveBtn").text("Save").removeAttr("product_id");
     setImage("");
-    $('#product-type').val('bosch')
+    $('#product-type').val($('#product-types').val())
     $('#specification1').val('Part no.: ')
-    $('#value1').val('Battery voltage: ')
+    // $('#value1').val('Battery voltage: ')
     // $('#specification2').val('Spindle size: ')
     // $('#value2').val('No-load speed (1st/2nd): ')
     // $('#specification3').val('Disc diameter: ')

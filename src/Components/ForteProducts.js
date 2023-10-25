@@ -1,6 +1,7 @@
 import React from 'react'
 import Vpsheader from './Vpsheader'
 import VpsProducts from './VpsProducts'
+import VpsProductsBootStrap from './VpsProductsBootStrap'
 
 export default function ForteProducts() {
   return (
@@ -55,7 +56,8 @@ export default function ForteProducts() {
           <span className="visually-hidden">Loading...</span>
         </div>
       </div>
-    <VpsProducts url="forte"/>
+    {/* <VpsProducts url="forte"/> */}
+    <VpsProductsBootStrap url="forte"/>
     </>
   )
 }
