@@ -338,8 +338,8 @@ export default function VpsProducts(props) {
                         </ul>
 
                         {/* Product Specifications */}
-                        {item.LongDescription !== "" && item.image === "" &&
-                        item.LongDescription !== undefined ? (
+                        {item.LongDescription.split(",")[1] !== "" && item.image === "" &&
+                        item.LongDescription.split(",")[1] !== undefined ? (
                           <>
                             <h3>Specifications:</h3>
                             <img

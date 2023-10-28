@@ -175,7 +175,7 @@ function VpsMemberPortal(props) {
     },
   ];
   const addProductModal = () => {
-    $("#exampleModal").find("input, textarea").val("");
+    $("#exampleModal").find("input").val("");
     $("#exampleModal").find("#isShow").prop("checked", false);
     $("#exampleModal").find("#isActive").prop("checked", true);
     $("#exampleModal").find(".shortDesc").addClass("d-none");
