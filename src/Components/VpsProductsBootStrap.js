@@ -173,7 +173,7 @@ export default function VpsProductsBootStrap(props) {
   return (
     <>
       {slideData.length > 0 && count == 0 ? (
-        <div className="row row-cols-1 row-cols-md-3 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4 mx-0">
           {slideData.map((item, index) => {
             return (
               <div className="col">
