@@ -54,7 +54,7 @@ export default function VpsProductsBootStrap(props) {
   const renderPaginationLinks = () => {
     if (totalRecord > 0) {
       if (totalRecord > 30) {
-        $(".nextBtn").removeClass("disabled");
+        !$('.lastButton').hasClass('active') && $(".nextBtn").removeClass("disabled");
       } else {
         $(".nextBtn").addClass("disabled");
       }

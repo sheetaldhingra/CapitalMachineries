@@ -42,8 +42,8 @@ function App() {
     {/* <Route exact path="/products/ralli" element={<Comingsoon />} /> */}
     <Route exact path="/products/starblaze" element={<StarProducts/>} />
     {/* <Route exact path="/products/starblaze" element={<Comingsoon />} /> */}
-    {/* <Route exact path="/products/warpp" element={<WarppProducts/>} /> */}
-    <Route exact path="/products/warpp" element={<Comingsoon />} />
+    <Route exact path="/products/warpp" element={<WarppProducts/>} />
+    {/* <Route exact path="/products/warpp" element={<Comingsoon />} /> */}
     <Route exact path="/about" element={<VpsBootstrapAboutus/>} />
     <Route exact path="/facilities" element={<Comingsoon/>} />
     <Route exact path="/manufacture" element={<Comingsoon />} />

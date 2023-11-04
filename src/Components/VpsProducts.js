@@ -53,7 +53,7 @@ export default function VpsProducts(props) {
   const renderPaginationLinks = () => {
     if (totalRecord > 0) {
       if (totalRecord > 10) {
-        $(".nextBtn").removeClass("disabled");
+        !$('.lastButton').hasClass('active') && $(".nextBtn").removeClass("disabled");
       } else {
         $(".nextBtn").addClass("disabled");
       }
@@ -101,6 +101,7 @@ export default function VpsProducts(props) {
     }
   };
   const getPageData = (event) => {
+    debugger
     event.stopPropagation();
     $(".numBtn").removeClass("active");
     $(event.target).addClass("active");
