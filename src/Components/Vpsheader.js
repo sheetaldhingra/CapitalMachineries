@@ -104,8 +104,8 @@ export default function Vpsheader() {
             <li className="nav-item ms-2">
               <Link
                 className="nav-link"
-                to="https://www.instagram.com/vpsecorp/?igshid=YmMyMTA2M2Y%3D"
-                target="_blank"
+                to="/"
+                // target="_blank"
               >
                 <FontAwesomeIcon icon={faInstagram} />
               </Link>
