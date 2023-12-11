@@ -405,7 +405,7 @@ export default function VpsProductSlider() {
     },
   };
   function sliderClick1(index) {
-    if (index != undefined && slideClick.length > 0) {
+    if (index !== undefined && slideClick.length > 0) {
       navigate("/singleProduct", {
         state: {
           name: slideClick[index].title,
@@ -468,6 +468,7 @@ export default function VpsProductSlider() {
                   slide_id={index}
                   onClick={sliderClick1(index)}
                 >
+                  <Link to="/singleProduct" state={{name: `${slide.title}`, image: `${slide.LongDescription.split(",")[0]}`, description: `${slide.description}`}}>
                   <div onClick={sliderClick1(index)}>
                     <img
                       src={slide.LongDescription.split(",")[0]}
@@ -479,6 +480,7 @@ export default function VpsProductSlider() {
                       <p>{slide.description}</p>
                     </div>
                   </div>
+                  </Link>
                 </SplideSlide>
               ))}
             </Splide>

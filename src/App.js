@@ -20,13 +20,14 @@ import DuraProducts from './Components/DuraProducts';
 import HeaproProducts from './Components/HeaproProducts';
 import RalliProducts from './Components/RalliProducts';
 import StarProducts from './Components/StarProducts';
+import VpsSingleProduct from './Components/VpsSingleProduct';
 function App() {
   return (
     <>
     <Router>
     <Routes>
     <Route exact path="/" element={<HomePage />} />
-    <Route exact path="/singleProduct" element={<Comingsoon/>} />
+    <Route exact path="/singleProduct" element={<VpsSingleProduct />} />
     <Route exact path="/contact" element={<ContactUs/>} />
     <Route exact path="/memberlogin" element={<MemberLogin/>} />
     <Route exact path="/memberlogin/MemberPortal" element={<VpsMemberPortal/>} />
@@ -39,11 +40,8 @@ function App() {
     {/* <Route exact path="/products/heapro" element={<HeaproProducts/>} /> */}
     <Route exact path="/products/heapro" element={<Comingsoon />} />
     <Route exact path="/products/ralli" element={<RalliProducts/>} />
-    {/* <Route exact path="/products/ralli" element={<Comingsoon />} /> */}
     <Route exact path="/products/starblaze" element={<StarProducts/>} />
-    {/* <Route exact path="/products/starblaze" element={<Comingsoon />} /> */}
     <Route exact path="/products/warpp" element={<WarppProducts/>} />
-    {/* <Route exact path="/products/warpp" element={<Comingsoon />} /> */}
     <Route exact path="/about" element={<VpsBootstrapAboutus/>} />
     <Route exact path="/facilities" element={<Comingsoon/>} />
     <Route exact path="/manufacture" element={<Comingsoon />} />

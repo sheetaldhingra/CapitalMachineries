@@ -174,7 +174,7 @@ export default function Vpsheader() {
                   About Us
                 </Link>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown productsli">
           <Link className="nav-link dropdown-toggle products" to="/products" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Products
           </Link>
@@ -199,7 +199,7 @@ export default function Vpsheader() {
                   Products
                 </Link>
               </li> */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   className="nav-link facilities"
                   onClick={showHideNavMenu}
@@ -216,7 +216,7 @@ export default function Vpsheader() {
                 >
                   Manufacturing
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link
                   className="nav-link contact"

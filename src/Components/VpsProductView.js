@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../Style/VpsProductsview.css";
 import { ImQuotesLeft } from "react-icons/im";
-import { ImQuotesRight } from "react-icons/im";
+// import { ImQuotesRight } from "react-icons/im";
 
 export default function VpsProductView() {
   const obsOptions = {};
@@ -83,7 +83,7 @@ export default function VpsProductView() {
             </div>
           </div>
         </div>
-        <div className="d-flex m-3 justify-content-center">
+        {/* <div className="d-flex m-3 justify-content-center">
           <h1 className="mx-4 productQuote">
             <ImQuotesLeft />
           </h1>
@@ -93,7 +93,7 @@ export default function VpsProductView() {
           <h1 className="mx-4 productQuote">
             <ImQuotesRight />
           </h1>
-        </div>
+        </div> */}
       </div>
     </div>
   );
