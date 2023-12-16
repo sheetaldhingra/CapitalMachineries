@@ -78,8 +78,8 @@ export default function ContactUsForm() {
           $("#inputmessage").val() +
           "</strong>",
       };
-      const res = await fetch(process.env.REACT_APP_VercelUrl + "/email/sendEmail", {
-      // const res = await fetch("http://localhost:5000/api/email/sendEmail", {
+      // const res = await fetch(process.env.REACT_APP_VercelUrl + "/email/sendEmail", {
+      const res = await fetch("http://localhost:5000/api/email/sendEmail", {
         method: "POST",
         body: JSON.stringify(dataSend),
         headers: {
