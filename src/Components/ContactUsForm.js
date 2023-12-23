@@ -31,6 +31,7 @@ export default function ContactUsForm() {
     if (document.getElementById("inputmessage").value === "") {
       document.getElementById("inputmessage").classList.add("is-invalid");
     } else {
+      $('.sendBtn').attr('disabled', true);
       document.getElementById("inputName").classList.remove("is-invalid");
       document.getElementById("lastName").classList.remove("is-invalid");
       document.getElementById("inputNumber").classList.remove("is-invalid");
@@ -97,6 +98,18 @@ export default function ContactUsForm() {
           $("#inputEmail").val("");
           $("#inputmessage").val("");
           $("#inputName, #lastName, #inputNumber").val("");
+        }
+        else{
+          Swal.fire({
+            icon: "error",
+            title: "Error in sending mail! Please try again later!",
+            showConfirmButton: true,
+            timer: 2500,
+          });
+          $("#inputEmail").val("");
+          $("#inputmessage").val("");
+          $("#inputName, #lastName, #inputNumber").val("");
+          $('.sendBtn').attr('disabled', false);
         }
       });
     }
@@ -210,7 +223,7 @@ export default function ContactUsForm() {
             </div>
             <button
               type="submit"
-              className="btn btn-primary shadow-primary btn-lg"
+              className="btn btn-primary shadow-primary sendBtn btn-lg"
               onClick={sendMail}
             >
               Send request
