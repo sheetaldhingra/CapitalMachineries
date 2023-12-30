@@ -4,13 +4,13 @@ import { useLocation } from "react-router-dom";
 import ContactUsForm from "./ContactUsForm";
 import Vpsheader from "./Vpsheader";
 import VpsFooter from "./VpsFooter";
-
 import $ from "jquery";
 export default function VpsResultPage() {
   const location = useLocation();
   const [products, setProducts] = useState([]);
-  var url = "";
+  var url = [];
   var headers = {};
+  var products1 = [];
   useEffect(() => {
     // "document.documentElement.scrollTo" is the magic for React Router Dom v6
     document.documentElement.scrollTo({
@@ -18,14 +18,42 @@ export default function VpsResultPage() {
       left: 0,
       behavior: "instant", // Optional if you want to skip the scrolling animation
     });
-    url =
+    products1 = [];
+    url.push(
+      process.env.REACT_APP_VercelUrl + "/bosch" +
+      `?title=` +
+      location.state.searchText,
+      process.env.REACT_APP_VercelUrl + "/ralli" +
+      `?title=` +
+      location.state.searchText,
+      process.env.REACT_APP_VercelUrl + "/dura" +
+      `?title=` +
+      location.state.searchText,
+      process.env.REACT_APP_VercelUrl + "/forte" +
+      `?title=` +
+      location.state.searchText,
       process.env.REACT_APP_VercelUrl + "/products" +
       `?title=` +
-      location.state.searchText;
-    getData();
+      location.state.searchText,
+      process.env.REACT_APP_VercelUrl + "/heapro" +
+      `?title=` +
+      location.state.searchText,
+      process.env.REACT_APP_VercelUrl + "/sandhu" +
+      `?title=` +
+      location.state.searchText,
+      process.env.REACT_APP_VercelUrl + "/star" +
+      `?title=` +
+      location.state.searchText,
+      process.env.REACT_APP_VercelUrl + "/warpp" +
+      `?title=` +
+      location.state.searchText,
+      );
+      $(url).each(function(i,val){
+        getData(i,val);
+      })
   }, [location.state.searchText]);
-  const getData = async () => {
-    const res = await fetch(url, {
+  const getData = async (i,url1) => {
+    const res = await fetch(url1, {
       method: "GET",
       headers: headers,
     })
@@ -36,7 +64,11 @@ export default function VpsResultPage() {
       })
       .then((data) => {
         data = data.myData;
-        setProducts(data);
+        products1.push(data);
+        const uniqueMergedArray = Array.from(new Set(products1.flatMap(obj => Object.values(obj))));
+        const ids = uniqueMergedArray.map(({ _id }) => _id);
+        const filtered = uniqueMergedArray.filter(({ _id }, index) => !ids.includes(_id, index + 1));
+        setProducts(filtered);
       })
       .catch(function (error) {});
   };
@@ -51,7 +83,11 @@ export default function VpsResultPage() {
               <div className="row">
                 <div className="col-sm-12 col-md-6">
                   <img
-                    src={item.image}
+                    src={
+                      item.image !== ""
+                        ? item.image
+                        : item.LongDescription.split(",")[0]
+                    }
                     style={{ width: "100%" }}
                     className="img-fluid"
                     alt="logo"
@@ -59,7 +95,58 @@ export default function VpsResultPage() {
                 </div>
                 <div className="col-sm-12 col-md-6">
                   <h2 className="section-heading text-dark">{item.title}</h2>
-                  <p className="about-content">{item.LongDescription}</p>
+                  <ul className="list-group list-group-flush">
+                {item.Specification1 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Specification1}</li>
+                  </>
+                )}
+                {item.Value1 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Value1}</li>
+                  </>
+                )}
+                {item.Specification2 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Specification2}</li>
+                  </>
+                )}
+                {item.Value2 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Value2}</li>
+                  </>
+                )}
+                {item.Specification3 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Specification3}</li>
+                  </>
+                )}
+                {item.Value3 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Value3}</li>
+                  </>
+                )}
+                {item.Specification4 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Specification4}</li>
+                  </>
+                )}
+                {item.Value4 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Value4}</li>
+                  </>
+                )}
+                {item.Specification5 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Specification5}</li>
+                  </>
+                )}
+                {item.Value5 !== "" && (
+                  <>
+                    <li className="list-group-item">{item.Value5}</li>
+                  </>
+                )}
+              </ul>
                 </div>
               </div>
             </div>
