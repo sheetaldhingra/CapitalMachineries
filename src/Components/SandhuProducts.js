@@ -1,6 +1,7 @@
 import React from 'react'
 import Vpsheader from './Vpsheader'
 import VpsProducts from './VpsProducts'
+import VpsFooter from './VpsFooter'
 
 export default function SandhuProducts() {
   return (
@@ -56,6 +57,7 @@ export default function SandhuProducts() {
         </div>
       </div>
     <VpsProducts url="sandhu"/>
+    <VpsFooter />
     </>
   )
 }

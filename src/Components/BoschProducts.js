@@ -1,7 +1,7 @@
 import React from "react";
 import Vpsheader from "./Vpsheader";
-import VpsProducts from "./VpsProducts";
 import VpsProductsBootStrap from "./VpsProductsBootStrap";
+import VpsFooter from "./VpsFooter";
 
 export default function BoschProducts() {
   return (
@@ -60,6 +60,7 @@ export default function BoschProducts() {
       </div>
       {/* <VpsProducts url="bosch" /> */}
       <VpsProductsBootStrap url="bosch" />
+      <VpsFooter />
     </>
   );
 }

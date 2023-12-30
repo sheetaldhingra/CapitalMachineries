@@ -37,28 +37,28 @@ export default function VpsProductSlider() {
       url:'/products/bosch'
     });
     slides.push({
-      image: '/Forte/fortelogoo.webp',
+      image: '/Forte/forte.png',
       title: 'Forte',
       description: 'Forte',
       LongDescription: 'Forte',
       url:'/products/forte'
     });
     slides.push({
-      image: '/Sandhu/sandhulogo.png',
+      image: '/Sandhu/sandhu.png',
       title: 'Sandhu',
       description: 'Sandhu',
       LongDescription: 'Sandhu',
       url:'/products/sandhu'
     });
     slides.push({
-      image: '/great_yuva/greatlogo.png',
+      image: '/great_yuva/greatyuva.png',
       title: 'Great Yuva',
       description: 'Great Yuva',
       LongDescription: 'Great Yuva',
       url:'/products/greatyuva'
     });
     slides.push({
-      image: '/RalliWolf/ralliwolf-logo.png',
+      image: '/RalliWolf/ralliwolf.png',
       title: 'Ralli Wolf',
       description: 'Ralli Wolf',
       LongDescription: 'Ralli Wolf',
@@ -73,7 +73,7 @@ export default function VpsProductSlider() {
       url:'/products/starblaze'
     });
     slides.push({
-      image: '/Warpp/warpplogo.webp',
+      image: '/Warpp/warpp.png',
       title: 'Warpp',
       description: 'Warpp',
       LongDescription: 'Warpp',
@@ -148,7 +148,7 @@ export default function VpsProductSlider() {
                       className="text-center"
                       src={slide.image}
                       alt={`Slide ${index}`}
-                      style={{ width: "100%", height: "auto", backgroundColor: (slide.color != undefined ? slide.color : "") }}
+                      style={{ width: "100%", height: "auto", backgroundColor: (slide.color !== undefined ? slide.color : "") }}
                     />
                     <div className="slide-content">
                       <h3 className="text-center py-4">{slide.title}</h3>

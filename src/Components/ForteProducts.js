@@ -1,7 +1,7 @@
 import React from 'react'
 import Vpsheader from './Vpsheader'
-import VpsProducts from './VpsProducts'
 import VpsProductsBootStrap from './VpsProductsBootStrap'
+import VpsFooter from './VpsFooter'
 
 export default function ForteProducts() {
   return (
@@ -58,6 +58,7 @@ export default function ForteProducts() {
       </div>
     {/* <VpsProducts url="forte"/> */}
     <VpsProductsBootStrap url="forte"/>
+    <VpsFooter />
     </>
   )
 }

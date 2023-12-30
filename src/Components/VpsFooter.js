@@ -16,16 +16,20 @@ export default function VpsFooter() {
               <li><Link to="/contact">FAQ</Link></li>
             </ul>
           </Col>
-          {/* <Col md={4}>
-            <h5><strong>Facilities</strong></h5>
+          <Col md={4}>
+            <h5><strong>Products</strong></h5>
             <ul className="list-unstyled">
-              <li><Link to="/facilities">Laser Engraving</Link></li>
-              <li><Link to="/facilities">CNC EDM</Link></li>
-              <li><Link to="/facilities">Surface Grinding</Link></li>
-              <li><Link to="/facilities">Injection Moulding</Link></li>
-              <li><Link to="/facilities">Blow Moulding</Link></li>
+              <li><Link to="/products/bosch">Bosch</Link></li>
+              <li><Link to="/products/forte">Forte</Link></li>
+              <li><Link to="/products/sandhu">Sandhu</Link></li>
+              <li><Link to="/products/greatyuva">Great Yuva</Link></li>
+              <li><Link to="/products/dura-shine">Dura Shine</Link></li>
+              <li><Link to="/products/heapro">Heapro</Link></li>
+              <li><Link to="/products/ralli">Ralli Wolf</Link></li>
+              <li><Link to="/products/starblaze">Star Blaze</Link></li>
+              <li><Link to="/products/warpp">Warpp</Link></li>
             </ul>
-          </Col> */}
+          </Col>
           <Col md={4}>
             <h5><strong>Stay Connected</strong></h5>
             <ul className="list-unstyled d-flex social-icons">
@@ -33,9 +37,9 @@ export default function VpsFooter() {
               <li className="m-2"><Link to="/"><FontAwesomeIcon icon={faTwitter} /></Link></li>
               <li className="m-2"><Link to="/"><FontAwesomeIcon icon={faInstagram} /></Link></li>
             </ul>
-            <p className="about-content">Subscribe to our newsletter to get the latest news and updates</p>
+            <p className="d-none about-content">Subscribe to our newsletter to get the latest news and updates</p>
             <form>
-              <div className="form-group mb-2">
+              <div className="d-none form-group mb-2">
                 <input type="email" className="form-control" placeholder="Enter your email" />
               </div>
               <button type="submit" className="btn btn-primary">Subscribe</button>

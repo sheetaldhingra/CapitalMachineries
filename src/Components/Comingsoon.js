@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Vpsheader from "./Vpsheader";
+import VpsFooter from "./VpsFooter";
 
 export default function Comingsoon() {
   //const Comingsoon = () => {
@@ -64,6 +65,7 @@ export default function Comingsoon() {
           </Row>
         </Container>
       </div>
+      <VpsFooter />
     </>
   );
   //}

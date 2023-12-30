@@ -1,6 +1,7 @@
 import React from 'react'
 import Vpsheader from './Vpsheader'
 import VpsProducts from './VpsProducts'
+import VpsFooter from './VpsFooter'
 
 export default function HeaproProducts() {
   return (
@@ -56,6 +57,7 @@ export default function HeaproProducts() {
         </div>
       </div>
     <VpsProducts url="heapro"/>
+    <VpsFooter />
     </>
   )
 }

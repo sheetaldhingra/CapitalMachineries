@@ -1,6 +1,7 @@
 import React from 'react'
 import Vpsheader from './Vpsheader'
 import VpsProducts from './VpsProducts'
+import VpsFooter from './VpsFooter'
 
 export default function GreatYuvaProducts() {
   return (
@@ -56,6 +57,7 @@ export default function GreatYuvaProducts() {
         </div>
       </div>
     <VpsProducts url="products"/>
+    <VpsFooter />
     </>
   )
 }
