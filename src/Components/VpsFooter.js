@@ -38,7 +38,7 @@ export default function VpsFooter() {
               <li className="m-2"><Link to="/"><FontAwesomeIcon icon={faInstagram} /></Link></li>
             </ul>
             <p className="d-none about-content">Subscribe to our newsletter to get the latest news and updates</p>
-            <form>
+            <form className='d-none'>
               <div className="d-none form-group mb-2">
                 <input type="email" className="form-control" placeholder="Enter your email" />
               </div>
@@ -49,7 +49,7 @@ export default function VpsFooter() {
         <hr />
         <Row>
           <Col className="text-center">
-            <p className="about-content">© 2023 All rights reserved.</p>
+            <p className="about-content">© 2024 All rights reserved.</p>
           </Col>
         </Row>
       </Container>
