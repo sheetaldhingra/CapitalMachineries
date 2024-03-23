@@ -2,9 +2,7 @@ import React from "react";
 import Vpsheader from "./Vpsheader";
 import VpsFooter from "./VpsFooter";
 import "../Style/about.css";
-import { MdOutlineArrowRightAlt } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 
 export default function VpsBootstrapAboutus() {
   return (
@@ -16,6 +14,59 @@ export default function VpsBootstrapAboutus() {
         data-element_type="section"
         data-settings='{"background_background":"classic"}'
       >
+        <Helmet>
+          <meta charset="utf-8" />
+          <title>
+            About Welding Machines Galore: Our Story and Commitment to Excellence
+          </title>
+          <meta
+            name="description"
+            content="Discover the essence of Welding Machines Galore. Dive into our About Us page to uncover our dedication to providing premium welding equipment. Learn about our commitment to excellence, customer satisfaction, and empowering welders with top-quality tools. Join us in shaping the future of welding solutions."
+          />
+          <meta
+            name="keywords"
+            content="Welding machine, Drill machine, Grinder, Mig, Tig"
+          />
+          <meta name="author" content="Capital Machineries" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="CapitalMachineries" />
+          <meta
+            name="twitter:title"
+            content="About Welding Machines Galore: Our Story and Commitment to Excellence"
+          />
+          <meta
+            name="twitter:description"
+            content="Discover the essence of Welding Machines Galore. Dive into our About Us page to uncover our dedication to providing premium welding equipment. Learn about our commitment to excellence, customer satisfaction, and empowering welders with top-quality tools. Join us in shaping the future of welding solutions."
+          />
+          <meta name="twitter:creator" content="CapitalMachineries" />
+          <meta
+            name="twitter:image"
+            content="https://www.capitalmachineries.com/weldingmachine/logo.png"
+          />
+          <link rel="canonical" href="https://www.capitalmachineries.com/" />
+          <meta
+            property="og:title"
+            content="About Welding Machines Galore: Our Story and Commitment to Excellence"
+          />
+          <meta
+            property="og:url"
+            content="https://www.capitalmachineries.com/"
+          />
+          <meta
+            property="og:image"
+            content="https://www.capitalmachineries.com/weldingmachine/logo.png"
+          />
+          <meta
+            property="og:description"
+            content="Discover the essence of Welding Machines Galore. Dive into our About Us page to uncover our dedication to providing premium welding equipment. Learn about our commitment to excellence, customer satisfaction, and empowering welders with top-quality tools. Join us in shaping the future of welding solutions."
+          />
+          <meta property="og:site_name" content="CapitalMachineries" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5"
+          />
+          <meta http-equiv="Cache-Control" content="no-cache" />
+        </Helmet>
         <div className="elementor-container elementor-column-gap-default">
           <div className="elementor-row">
             <div
@@ -57,15 +108,16 @@ export default function VpsBootstrapAboutus() {
                   >
                     <div className="elementor-widget-container">
                       <div className="elementor-text-editor elementor-clearfix">
-                      <p className="text-light">
+                        <p className="text-light">
                           With a rich history dating back to 1997, we embarked
                           on our journey as a river, initially offering a
                           singular product line of welding machines. Fast
-                          forward {new Date().getFullYear() - 1998}+ years, and we have evolved into a
-                          formidable force in the industry. Our unwavering
-                          commitment to excellence has paved the way for us to
-                          collaborate with renowned brands, including Great
-                          Yuva, Ralli Wolf, Stanvac Prime Limited, and more.
+                          forward {new Date().getFullYear() - 1998}+ years, and
+                          we have evolved into a formidable force in the
+                          industry. Our unwavering commitment to excellence has
+                          paved the way for us to collaborate with renowned
+                          brands, including Great Yuva, Ralli Wolf, Stanvac
+                          Prime Limited, and more.
                         </p>
                         <p className="text-light">
                           Our tagline, "A Trusted Name in Welding Machines,"

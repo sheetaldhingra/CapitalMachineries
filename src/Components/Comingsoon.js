@@ -52,8 +52,8 @@ export default function Comingsoon() {
             <Col md={8} className="text-center">
               <img
                 className="d-block w-100"
-                src={process.env.PUBLIC_URL + "/comingsoon.jpg"}
-                alt="Third slide"
+                src={process.env.PUBLIC_URL + "/comingsoon.webp"}
+                alt="Coming Soon"
               />
               {/* <h1 className="section-heading">Coming Soon</h1>
               <p className="section-description">
