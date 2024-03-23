@@ -21,6 +21,7 @@ import HeaproProducts from './Components/HeaproProducts';
 import RalliProducts from './Components/RalliProducts';
 import StarProducts from './Components/StarProducts';
 import VpsSingleProduct from './Components/VpsSingleProduct';
+import ErrorPage from './Components/ErrorPage';
 function App() {
   return (
     <>
@@ -47,6 +48,8 @@ function App() {
     <Route exact path="/manufacture" element={<Comingsoon />} />
     <Route exact path="/memberlogin/Addmachines" element={<AddMachines/>} />
     <Route exact path="/searchResult" element={<VpsResultPage/>} />
+    <Route exact path="/error-404" element={<ErrorPage />} />
+    <Route path="*" element={<ErrorPage />} />
   </Routes>
   <GoToTop/>
     </Router>
